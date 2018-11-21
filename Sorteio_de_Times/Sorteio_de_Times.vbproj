@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4335F5C7-53BE-4749-9E72-B14AA3CD4C20}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Sorteio_de_Times.My.MyApplication</StartupObject>
+    <RootNamespace>Sorteio_de_Times</RootNamespace>
+    <AssemblyName>Sorteio_de_Times</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Guilherme Bueno\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Sorteio_de_Times.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Sorteio_de_Times.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icopesred.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\DataSources\Form1.datasource" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MiraiBeep.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heartbeat0.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TvSw.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mclick.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barcelona.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\select_pes15.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tick.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bayern_de_munique.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arsenal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atlético_de_madrid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borussia_dortmund.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chelsea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inter_de_milão.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\juventus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\liverpool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manchester_city.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manchester_united.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\milan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\napoli.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\real_madrid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\roma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\generic_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pesleague.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WE9cancel.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WE9change.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WE9change2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WE9select.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brighton_e_hove_albion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borussia_mönchengladbach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paris_saint_germain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fenerbahçe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bournemouth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cardiff_city.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crystal_palace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\everton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fulham.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\huddersfield_town.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leicester_city.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newcastle_united.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\southampton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tottenham.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\watford.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\west_ham.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wolverhampton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\burnley.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\porto.png" />
+    <None Include="Resources\psv_eindhoven.png" />
+    <None Include="Resources\cska_moscou.png" />
+    <None Include="Resources\shakhtar_donetsk.png" />
+    <None Include="Resources\river_plate.png" />
+    <None Include="Resources\galatasaray.png" />
+    <None Include="Resources\boca_juniors.png" />
+    <None Include="Resources\benfica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icopesred.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
