@@ -128,8 +128,6 @@ Public Class Form1
 
         AddJ.Enabled = False
         PesquisaC.Enabled = False
-        'ListaJ.Enabled = False
-        'ListaC.Enabled = False
         BtnSort.Enabled = False
         BtnLimpar.Enabled = False
         TrackBar1.Enabled = False
@@ -287,8 +285,6 @@ Public Class Form1
     Public Sub ReativaBtn()
         AddJ.Enabled = True
         PesquisaC.Enabled = True
-        'ListaJ.Enabled = True
-        'ListaC.Enabled = True
         BtnSort.Enabled = True
         BtnLimpar.Enabled = True
         TrackBar1.Enabled = True
