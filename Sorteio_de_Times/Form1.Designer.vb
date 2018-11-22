@@ -278,7 +278,7 @@ Partial Class Form1
         Me.BtnSort.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.BtnSort.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSort.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.BtnSort.Location = New System.Drawing.Point(12, 18)
+        Me.BtnSort.Location = New System.Drawing.Point(11, 18)
         Me.BtnSort.Name = "BtnSort"
         Me.BtnSort.Size = New System.Drawing.Size(146, 72)
         Me.BtnSort.TabIndex = 4
@@ -859,7 +859,7 @@ Partial Class Form1
         Me.BtnLimpar.Anchor = System.Windows.Forms.AnchorStyles.Bottom
         Me.BtnLimpar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnLimpar.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.BtnLimpar.Location = New System.Drawing.Point(178, 18)
+        Me.BtnLimpar.Location = New System.Drawing.Point(176, 18)
         Me.BtnLimpar.Name = "BtnLimpar"
         Me.BtnLimpar.Size = New System.Drawing.Size(146, 72)
         Me.BtnLimpar.TabIndex = 5
@@ -872,7 +872,7 @@ Partial Class Form1
         Me.BtnCancel.Enabled = False
         Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancel.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.BtnCancel.Location = New System.Drawing.Point(344, 18)
+        Me.BtnCancel.Location = New System.Drawing.Point(341, 18)
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.Size = New System.Drawing.Size(146, 72)
         Me.BtnCancel.TabIndex = 6

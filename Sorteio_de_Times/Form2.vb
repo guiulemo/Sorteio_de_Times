@@ -16,11 +16,14 @@ Public Class Form2
         If ProgressBar1.Value = 0 Then
             Timer3.Enabled = False
             Wait(1)
-            ContRegr.Visible = False
-            BlocoDr.Visible = True
-            Form1.Timer2.Enabled = True
-            ProgressBar1.Value = 3
-            ContRegr.Text = Nothing
+            If InterromperProcesso = True Then
+                Form1.BtnCancel_Click(sender, e)
+            Else
+                ContRegr.Visible = False
+                ContRegr.Text = Nothing
+                BlocoDr.Visible = True
+                Form1.Timer2.Enabled = True
+            End If
         End If
     End Sub
 
