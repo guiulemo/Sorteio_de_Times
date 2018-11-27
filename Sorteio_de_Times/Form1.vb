@@ -1,9 +1,12 @@
 ﻿Imports VB = Microsoft.VisualBasic
+Imports System.Data.SQLite
+Imports System.ComponentModel
 
 Module Modulo1
-    Public AListaJ As String() = Form1.ListaJ.Lines
-    Public AListaC As String() = Form1.ListaC.Lines
+    Public AListaJ As String()
+    Public AListaC As String()
     Public InterromperProcesso As Boolean
+    Public constr As String = "Data Source=SorteioPES.db"
 
     Public Sub Wait(ByVal seconds As Single)
         Static start As Single
@@ -66,6 +69,82 @@ Module Modulo1
         Return Nome
     End Function
 
+    Public Sub GridToArrayJ()
+        Dim output(Form1.DataGridView1.Columns.Count * If(Form1.DataGridView1.NewRowIndex <> -1, Form1.DataGridView1.Rows.Count - 1, Form1.DataGridView1.Rows.Count) - 1) As String
+        Dim i As Integer = 0
+
+        For Each row As DataGridViewRow In Form1.DataGridView1.Rows
+            If row.IsNewRow Then Continue For
+            For Each cell As DataGridViewCell In row.Cells
+                output(i) = cell.Value.ToString
+                i += 1
+            Next
+        Next
+        AListaJ = output
+    End Sub
+
+    Public Sub GridToArrayC()
+        Dim output(Form1.DataGridView2.Columns.Count * If(Form1.DataGridView2.NewRowIndex <> -1, Form1.DataGridView2.Rows.Count - 1, Form1.DataGridView2.Rows.Count) - 1) As String
+        Dim i As Integer = 0
+
+        For Each row As DataGridViewRow In Form1.DataGridView2.Rows
+            If row.IsNewRow Then Continue For
+            For Each cell As DataGridViewCell In row.Cells
+                output(i) = cell.Value.ToString
+                i += 1
+            Next
+        Next
+        AListaC = output
+    End Sub
+
+    Sub Clube_autocomplete()
+        Dim cn As New SQLiteConnection(constr)
+        Try
+            cn.Open()
+        Catch ex As Exception
+            cn.Dispose()
+            cn = Nothing
+            MsgBox(ex.Message)
+            Exit Sub
+        End Try
+
+        Using cmd As New SQLiteCommand("Select Nome From Clubes", cn)
+            Using rd As SQLiteDataReader = cmd.ExecuteReader
+                While rd.Read
+                    With Form1.PesquisaC
+                        .AutoCompleteCustomSource.Add(rd.Item(0))
+                    End With
+                End While
+                rd.Close()
+            End Using
+        End Using
+        cn.Close()
+    End Sub
+
+    Sub Jogador_autocomplete()
+        Dim cn As New SQLiteConnection(constr)
+        Try
+            cn.Open()
+        Catch ex As Exception
+            cn.Dispose()
+            cn = Nothing
+            MsgBox(ex.Message)
+            Exit Sub
+        End Try
+
+        Using cmd As New SQLiteCommand("Select Nome From Jogadores", cn)
+            Using rd As SQLiteDataReader = cmd.ExecuteReader
+                While rd.Read
+                    With Form1.AddJ
+                        .AutoCompleteCustomSource.Add(rd.Item(0))
+                    End With
+                End While
+                rd.Close()
+            End Using
+        End Using
+        cn.Close()
+    End Sub
+
 End Module
 
 Public Class Form1
@@ -79,6 +158,20 @@ Public Class Form1
     Dim maiT As Int32
     Dim Esc As Object
     Private rnd0 As New Random()
+
+    Private Sub dafill(ByVal q As String, ByVal tbl As DataTable, ByVal cn As SQLiteConnection)
+        Dim da As New SQLiteDataAdapter(q, cn)
+        da.Fill(tbl)
+        da.Dispose()
+        da = Nothing
+    End Sub
+    Private Sub ExecuteNonQuery(ByVal query As String, ByVal cn As SQLiteConnection)
+        Dim cm As New SQLiteCommand(query, cn)
+        cm.ExecuteNonQuery()
+        cm.Dispose()
+        cm = Nothing
+    End Sub
+
     'Procedimento que reordena aleatoriamente uma lista de items
     Public Sub Shuffle(items As String())
         Dim j As Int32
@@ -94,7 +187,9 @@ Public Class Form1
     End Sub
     'Botão principal que engatilha o sorteio
     Public Sub BtnSort_Click(sender As Object, e As EventArgs) Handles BtnSort.Click
-        Organiza() 'Procedimento que organiza as listas de jogadores e times (Linhas em branco, espacos, etc)
+        'Organiza() 'Procedimento que organiza as listas de jogadores e times (Linhas em branco, espacos, etc)
+        GridToArrayJ()
+        GridToArrayC()
 
         'Armazenam o número de jogadores e de clubes
         If AListaJ.Count > 8 Then
@@ -247,7 +342,6 @@ Public Class Form1
             End If
         End If
     End Sub
-
     'Limpa todos os campos
     Private Sub BtnLimpar_Click(sender As Object, e As EventArgs) Handles BtnLimpar.Click
         For Each c As Object In Me.Panel4.Controls
@@ -290,67 +384,238 @@ Public Class Form1
         TrackBar1.Enabled = True
         BtnCancel.Enabled = False
     End Sub
-    'Procedimento que remove espaços e linhas em branco das listas de jogadores e clubes
-    Public Sub Organiza()
-        Dim StrAux0 As String = Nothing
-        Dim StrAux1 As String = Nothing
 
-        'Remove linhas em branco ou com espaços na lista de jogadores
-        For Each c As String In ListaJ.Lines
-            c = c.Trim()
-            StrAux0 += c & Environment.NewLine
-        Next
-        ListaJ.Text = StrAux0
-        DelRepetidos(ListaJ)
-        ListaJ.Lines = ListaJ.Text.Split(New Char() {ControlChars.Lf}, StringSplitOptions.RemoveEmptyEntries)
-        AListaJ = ListaJ.Lines
-
-        'Remove linhas em branco ou com espaços na lista de times
-        For Each c As String In ListaC.Lines
-            c = c.Trim()
-            StrAux1 += c & Environment.NewLine
-        Next
-        ListaC.Text = StrAux1
-        DelRepetidos(ListaC)
-        ListaC.Lines = ListaC.Text.Split(New Char() {ControlChars.Lf}, StringSplitOptions.RemoveEmptyEntries)
-        AListaC = ListaC.Lines
-    End Sub
-    'Procedimento que remove os nomes de Jogadores e Clubes repetidos
-    Public Sub DelRepetidos(ByVal e As RichTextBox)
-        Dim Linha As String = Nothing
-        Dim contador As Integer = 0
-        Dim lines() As String = e.Lines
-
-        For x = 0 To e.Lines.Count - 1
-            Linha = e.Lines(x)
-            contador = 0
-            For Each c As String In e.Lines
-                If LCase(c) = LCase(lines(x)) Then
-                    contador += 1
-                    If contador > 1 Then
-                        lines(x) = ""
-                        e.Lines = lines
-                    End If
-                End If
-            Next
-        Next
-    End Sub
-
-    Private Sub AddJ_Enter(sender As Object, e As EventArgs) Handles AddJ.Enter
-        AddJ.ForeColor = Color.FromArgb(0)
-        AddJ.Text = ""
-    End Sub
-
-    Private Sub AddJ_Leave(sender As Object, e As EventArgs) Handles AddJ.Leave
-        AddJ.ForeColor = Color.FromArgb(109, 109, 109)
-        AddJ.Text = "Adicionar Jogadores"
-    End Sub
-
+    'ADDJ PRESSIONA ENTER
     Private Sub AddJ_KeyDown(sender As Object, e As KeyEventArgs) Handles AddJ.KeyDown
         If e.KeyCode = Keys.Enter Then
-            ListaJ.Text += Environment.NewLine & AddJ.Text
-            Organiza()
+
+            For Each row As DataGridViewRow In DataGridView1.Rows
+                For Each cell As DataGridViewCell In row.Cells
+                    If LCase(Trim(cell.Value)) = LCase(Trim(AddJ.Text)) Then
+                        MsgBox(UCase(Trim(AddJ.Text)) & " já foi adicionado(a)", MsgBoxStyle.Exclamation, "Atenção")
+                        Exit Sub
+                    End If
+                Next
+            Next
+
+            Dim cn As New SQLiteConnection(constr)
+            Try
+                cn.Open()
+            Catch ex As Exception
+                cn.Dispose()
+                cn = Nothing
+                MsgBox(ex.Message)
+                Exit Sub
+            End Try
+
+            Dim dtc As New DataTable
+            Try
+                dafill("Select Nome FROM Jogadores where Nome = '" & Trim(AddJ.Text) & "' COLLATE NOCASE", dtc, cn)
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+            If dtc.Rows.Count > 0 Then
+                ExecuteNonQuery("Update Jogadores SET Part_ultimo = 'S' where Nome = '" & Trim(AddJ.Text) & "' COLLATE NOCASE", cn)
+            Else
+                Try
+                    Dim Result As DialogResult
+                    Result = MsgBox("Será o primeiro torneio de " & UCase(Trim(AddJ.Text)) & "." & vbCrLf & "Deseja cadastrá-lo(a)?", MsgBoxStyle.YesNo + MessageBoxIcon.Question, "Novo Jogador(a)")
+                    If Result = MsgBoxResult.Yes Then
+                        ExecuteNonQuery("Insert Into Jogadores (Nome, Part_ultimo) values ('" & Trim(AddJ.Text) & "','S')", cn)
+                    Else
+                        dtc.Dispose()
+                        dtc = Nothing
+                        cn.Close()
+                        cn.Dispose()
+                        cn = Nothing
+                        Exit Sub
+                    End If
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+            End If
+
+            Dim dt As New DataTable
+            Try
+                dafill("Select Nome From Jogadores Where Part_ultimo = 'S' Order By 1", dt, cn)
+                DataGridView1.DataSource = Nothing
+                DataGridView1.DataSource = dt
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+            'Seleciona célula do jogador que acabou de ser incluído
+            For Each row As DataGridViewRow In DataGridView1.Rows
+                For Each cell As DataGridViewCell In row.Cells
+                    If LCase(Trim(cell.Value)) = LCase(Trim(AddJ.Text)) Then
+                        DataGridView1.CurrentCell = DataGridView1.Rows(cell.RowIndex).Cells(0)
+                    End If
+                Next
+            Next
+
+            dtc.Dispose()
+            dtc = Nothing
+            dt.Dispose()
+            dt = Nothing
+            cn.Close()
+            cn.Dispose()
+            cn = Nothing
+
             AddJ.Text = ""
+        End If
+    End Sub
+    'DELETE JOGADOR
+    Private Sub DataGridView1_KeyDown(sender As Object, e As KeyEventArgs) Handles DataGridView1.KeyDown
+        If e.KeyCode = Keys.Delete And DataGridView1.Rows.Count > 0 Then
+            Dim Nome As String = DataGridView1.CurrentCell.Value.ToString()
+            Dim Position As Integer = DataGridView1.CurrentCell.RowIndex
+            Dim NumLinhas As Integer = DataGridView1.Rows.Count
+            Dim cn As New SQLiteConnection(constr)
+
+            If Position + 1 = NumLinhas Then
+                Position = Position - 1
+            End If
+
+            Try
+                cn.Open()
+            Catch ex As Exception
+                cn.Dispose()
+                cn = Nothing
+                MsgBox(ex.Message)
+                Exit Sub
+            End Try
+
+            ExecuteNonQuery("Update Jogadores SET Part_ultimo = 'N' where Nome = '" & Nome & "' COLLATE NOCASE", cn)
+
+            Dim dt As New DataTable
+            Try
+                dafill("Select Nome From Jogadores Where Part_ultimo = 'S' Order By 1", dt, cn)
+                DataGridView1.DataSource = Nothing
+                DataGridView1.DataSource = dt
+                If NumLinhas > 1 Then
+                    DataGridView1.CurrentCell = DataGridView1.Rows(Position).Cells(0)
+                End If
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+            dt.Dispose()
+            dt = Nothing
+            cn.Close()
+            cn.Dispose()
+            cn = Nothing
+        End If
+    End Sub
+    'PESQUISA CLUBE
+    Private Sub PesquisaC_KeyDown(sender As Object, e As KeyEventArgs) Handles PesquisaC.KeyDown
+        If e.KeyCode = Keys.Enter Then
+
+            For Each row As DataGridViewRow In DataGridView2.Rows
+                For Each cell As DataGridViewCell In row.Cells
+                    If LCase(Trim(cell.Value)) = LCase(Trim(PesquisaC.Text)) Then
+                        MsgBox(UCase(Trim(PesquisaC.Text)) & " já foi adicionado(a)", MsgBoxStyle.Exclamation, "Atenção")
+                        Exit Sub
+                    End If
+                Next
+            Next
+
+            Dim cn As New SQLiteConnection(constr)
+            Try
+                cn.Open()
+            Catch ex As Exception
+                cn.Dispose()
+                cn = Nothing
+                MsgBox(ex.Message)
+                Exit Sub
+            End Try
+
+            Dim dtc As New DataTable
+            Try
+                dafill("Select Nome FROM Clubes where Nome = '" & Trim(PesquisaC.Text) & "' COLLATE NOCASE", dtc, cn)
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+            If dtc.Rows.Count > 0 Then
+                ExecuteNonQuery("Update Clubes SET ListaSorteio = 'S' where Nome = '" & Trim(PesquisaC.Text) & "' COLLATE NOCASE", cn)
+            Else
+                MsgBox("Time não localizado", MessageBoxIcon.Exclamation, "Atenção")
+                dtc.Dispose()
+                dtc = Nothing
+                cn.Close()
+                cn.Dispose()
+                cn = Nothing
+                Exit Sub
+            End If
+
+            Dim dt As New DataTable
+            Try
+                dafill("Select Nome From Clubes Where ListaSorteio = 'S' Order By 1", dt, cn)
+                DataGridView2.DataSource = Nothing
+                DataGridView2.DataSource = dt
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+            'Seleciona célula do time que acabou de ser incluído
+            For Each row As DataGridViewRow In DataGridView2.Rows
+                For Each cell As DataGridViewCell In row.Cells
+                    If LCase(Trim(cell.Value)) = LCase(Trim(PesquisaC.Text)) Then
+                        DataGridView2.CurrentCell = DataGridView2.Rows(cell.RowIndex).Cells(0)
+                    End If
+                Next
+            Next
+
+            dtc.Dispose()
+            dtc = Nothing
+            dt.Dispose()
+            dt = Nothing
+            cn.Close()
+            cn.Dispose()
+            cn = Nothing
+
+            PesquisaC.Text = ""
+        End If
+    End Sub
+    'DELETE CLUBE
+    Private Sub DataGridView2_KeyDown(sender As Object, e As KeyEventArgs) Handles DataGridView2.KeyDown
+        If e.KeyCode = Keys.Delete And DataGridView2.Rows.Count > 0 Then
+            Dim Nome As String = DataGridView2.CurrentCell.Value.ToString()
+            Dim Position As Integer = DataGridView2.CurrentCell.RowIndex
+            Dim NumLinhas As Integer = DataGridView2.Rows.Count
+            Dim cn As New SQLiteConnection(constr)
+
+            If Position + 1 = NumLinhas Then
+                Position = Position - 1
+            End If
+
+            Try
+                cn.Open()
+            Catch ex As Exception
+                cn.Dispose()
+                cn = Nothing
+                MsgBox(ex.Message)
+                Exit Sub
+            End Try
+
+            ExecuteNonQuery("Update Clubes SET ListaSorteio = 'N' where Nome = '" & Nome & "' COLLATE NOCASE", cn)
+
+            Dim dt As New DataTable
+            Try
+                dafill("Select Nome From Clubes Where ListaSorteio = 'S' Order By 1", dt, cn)
+                DataGridView2.DataSource = Nothing
+                DataGridView2.DataSource = dt
+                If NumLinhas > 1 Then
+                    DataGridView2.CurrentCell = DataGridView2.Rows(Position).Cells(0)
+                End If
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+            dt.Dispose()
+            dt = Nothing
+            cn.Close()
+            cn.Dispose()
+            cn = Nothing
         End If
     End Sub
 
@@ -364,12 +629,80 @@ Public Class Form1
         PesquisaC.Text = "Pesquisar Clubes"
     End Sub
 
-    Private Sub PesquisaC_KeyDown(sender As Object, e As KeyEventArgs) Handles PesquisaC.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            ListaC.Text += Environment.NewLine & PesquisaC.Text
-            Organiza()
-            PesquisaC.Text = ""
-        End If
+    Private Sub AddJ_Enter(sender As Object, e As EventArgs) Handles AddJ.Enter
+        AddJ.ForeColor = Color.FromArgb(0)
+        AddJ.Text = ""
     End Sub
 
+    Private Sub AddJ_Leave(sender As Object, e As EventArgs) Handles AddJ.Leave
+        AddJ.ForeColor = Color.FromArgb(109, 109, 109)
+        AddJ.Text = "Adicionar Jogadores"
+    End Sub
+
+    'FORM1 LOAD
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Clube_autocomplete()
+        Jogador_autocomplete()
+
+        Dim cn As New SQLiteConnection(constr)
+        Try
+            cn.Open()
+        Catch ex As Exception
+            cn.Dispose()
+            cn = Nothing
+            MsgBox(ex.Message)
+            Exit Sub
+        End Try
+
+        Dim dt As New DataTable
+        Try
+            dafill("Select Nome From Jogadores Where Part_ultimo = 'S' Order By 1", dt, cn)
+            DataGridView1.DataSource = Nothing
+            DataGridView1.DataSource = dt
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        Dim dtc As New DataTable
+        Try
+            ExecuteNonQuery("Update Clubes SET ListaSorteio = 'N'", cn)
+            ExecuteNonQuery("Update Clubes SET ListaSorteio = 'S' where Principal = 'S'", cn)
+            dafill("Select Nome From Clubes Where Principal = 'S' Order By 1", dtc, cn)
+            DataGridView2.DataSource = Nothing
+            DataGridView2.DataSource = dtc
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        dtc.Dispose()
+        dtc = Nothing
+        dt.Dispose()
+        dt = Nothing
+        cn.Close()
+        cn.Dispose()
+        cn = Nothing
+    End Sub
+
+    'FORM1 CLOSING
+    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        Dim cn As New SQLiteConnection(constr)
+        Try
+            cn.Open()
+        Catch ex As Exception
+            cn.Dispose()
+            cn = Nothing
+            MsgBox(ex.Message)
+            Exit Sub
+        End Try
+
+        ExecuteNonQuery("Update Jogadores SET Part_ultimo = 'S'", cn)
+
+        cn.Close()
+        cn.Dispose()
+        cn = Nothing
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        Estatisticas.Show()
+    End Sub
 End Class

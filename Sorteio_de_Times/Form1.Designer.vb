@@ -23,17 +23,19 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PnlListaC = New System.Windows.Forms.Panel()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PesquisaC = New System.Windows.Forms.TextBox()
-        Me.ListaC = New System.Windows.Forms.RichTextBox()
-        Me.ListaJ = New System.Windows.Forms.RichTextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SortJ1 = New System.Windows.Forms.TextBox()
         Me.BtnSort = New System.Windows.Forms.Button()
@@ -43,42 +45,34 @@ Partial Class Form1
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.PJ8 = New System.Windows.Forms.Panel()
         Me.JColor8 = New System.Windows.Forms.Panel()
-        Me.Logo8 = New System.Windows.Forms.PictureBox()
         Me.SortJ8 = New System.Windows.Forms.TextBox()
         Me.SortC8 = New System.Windows.Forms.TextBox()
         Me.PJ4 = New System.Windows.Forms.Panel()
         Me.JColor4 = New System.Windows.Forms.Panel()
-        Me.Logo4 = New System.Windows.Forms.PictureBox()
         Me.SortJ4 = New System.Windows.Forms.TextBox()
         Me.SortC4 = New System.Windows.Forms.TextBox()
         Me.PJ6 = New System.Windows.Forms.Panel()
         Me.JColor6 = New System.Windows.Forms.Panel()
-        Me.Logo6 = New System.Windows.Forms.PictureBox()
         Me.SortJ6 = New System.Windows.Forms.TextBox()
         Me.SortC6 = New System.Windows.Forms.TextBox()
         Me.PJ2 = New System.Windows.Forms.Panel()
         Me.JColor2 = New System.Windows.Forms.Panel()
-        Me.Logo2 = New System.Windows.Forms.PictureBox()
         Me.SortJ2 = New System.Windows.Forms.TextBox()
         Me.SortC2 = New System.Windows.Forms.TextBox()
         Me.PJ7 = New System.Windows.Forms.Panel()
         Me.JColor7 = New System.Windows.Forms.Panel()
-        Me.Logo7 = New System.Windows.Forms.PictureBox()
         Me.SortJ7 = New System.Windows.Forms.TextBox()
         Me.SortC7 = New System.Windows.Forms.TextBox()
         Me.PJ3 = New System.Windows.Forms.Panel()
         Me.JColor3 = New System.Windows.Forms.Panel()
-        Me.Logo3 = New System.Windows.Forms.PictureBox()
         Me.SortJ3 = New System.Windows.Forms.TextBox()
         Me.SortC3 = New System.Windows.Forms.TextBox()
         Me.PJ5 = New System.Windows.Forms.Panel()
         Me.JColor5 = New System.Windows.Forms.Panel()
-        Me.Logo5 = New System.Windows.Forms.PictureBox()
         Me.SortJ5 = New System.Windows.Forms.TextBox()
         Me.SortC5 = New System.Windows.Forms.TextBox()
         Me.PJ1 = New System.Windows.Forms.Panel()
         Me.JColor1 = New System.Windows.Forms.Panel()
-        Me.Logo1 = New System.Windows.Forms.PictureBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.BtnLimpar = New System.Windows.Forms.Button()
@@ -87,34 +81,46 @@ Partial Class Form1
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.PnlListaJ = New System.Windows.Forms.Panel()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.AddJ = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Logo8 = New System.Windows.Forms.PictureBox()
+        Me.Logo4 = New System.Windows.Forms.PictureBox()
+        Me.Logo6 = New System.Windows.Forms.PictureBox()
+        Me.Logo2 = New System.Windows.Forms.PictureBox()
+        Me.Logo7 = New System.Windows.Forms.PictureBox()
+        Me.Logo3 = New System.Windows.Forms.PictureBox()
+        Me.Logo5 = New System.Windows.Forms.PictureBox()
+        Me.Logo1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlListaC.SuspendLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         Me.PJ8.SuspendLayout()
-        CType(Me.Logo8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PJ4.SuspendLayout()
-        CType(Me.Logo4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PJ6.SuspendLayout()
-        CType(Me.Logo6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PJ2.SuspendLayout()
-        CType(Me.Logo2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PJ7.SuspendLayout()
-        CType(Me.Logo7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PJ3.SuspendLayout()
-        CType(Me.Logo3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PJ5.SuspendLayout()
-        CType(Me.Logo5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PJ1.SuspendLayout()
-        CType(Me.Logo1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.PnlListaJ.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Logo8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Logo4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Logo6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Logo2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Logo7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Logo3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Logo5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Logo1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -161,30 +167,64 @@ Partial Class Form1
         Me.Panel2.Size = New System.Drawing.Size(452, 78)
         Me.Panel2.TabIndex = 0
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Sorteio_de_Times.My.Resources.Resources.pesleague
-        Me.PictureBox1.Location = New System.Drawing.Point(27, 2)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(399, 70)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
-        '
         'PnlListaC
         '
         Me.PnlListaC.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.PnlListaC.BackColor = System.Drawing.Color.FromArgb(CType(CType(95, Byte), Integer), CType(CType(95, Byte), Integer), CType(CType(95, Byte), Integer))
         Me.PnlListaC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PnlListaC.Controls.Add(Me.DataGridView2)
         Me.PnlListaC.Controls.Add(Me.Label2)
         Me.PnlListaC.Controls.Add(Me.PesquisaC)
-        Me.PnlListaC.Controls.Add(Me.ListaC)
         Me.PnlListaC.Location = New System.Drawing.Point(220, 75)
         Me.PnlListaC.Name = "PnlListaC"
         Me.PnlListaC.Size = New System.Drawing.Size(232, 592)
         Me.PnlListaC.TabIndex = 0
         Me.PnlListaC.TabStop = True
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AllowUserToResizeColumns = False
+        Me.DataGridView2.AllowUserToResizeRows = False
+        Me.DataGridView2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
+        Me.DataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        Me.DataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.ColumnHeadersVisible = False
+        Me.DataGridView2.Cursor = System.Windows.Forms.Cursors.Arrow
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridView2.EnableHeadersVisualStyles = False
+        Me.DataGridView2.Location = New System.Drawing.Point(-1, 82)
+        Me.DataGridView2.MultiSelect = False
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
+        Me.DataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.DataGridView2.RowHeadersVisible = False
+        Me.DataGridView2.RowTemplate.Height = 28
+        Me.DataGridView2.RowTemplate.ReadOnly = True
+        Me.DataGridView2.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView2.Size = New System.Drawing.Size(232, 515)
+        Me.DataGridView2.TabIndex = 4
+        Me.DataGridView2.TabStop = False
         '
         'Label2
         '
@@ -201,7 +241,6 @@ Partial Class Form1
         '
         Me.PesquisaC.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PesquisaC.AutoCompleteCustomSource.AddRange(New String() {"Alavés", "América-MG", "Amiens", "Angers", "Arsenal", "Atalanta", "Athletic Bilbao", "Atlético de Madrid", "Atlético-MG", "Atlético-PR", "Augsburg", "Bahia", "Barcelona", "Bayer Leverkusen", "Bayern de Munique", "Benfica", "Betis", "Boca Juniors", "Bologna", "Bordeaux", "Borussia Dortmund", "Borussia Mönchengladbach", "Botafogo", "Bournemouth", "Brighton & Hove Albion", "Burnley", "Caen", "Cagliari", "Cardiff City", "Ceará", "Celta de Vigo", "Chapecoense", "Chelsea", "Chievo", "Corinthians", "Cruzeiro", "Crystal Palace", "CSKA Moscou", "Dijon", "Eibar", "Eintracht Frankfurt", "Empoli", "Espanyol", "Everton", "Fenerbahçe", "Fiorentina", "Flamengo", "Fluminense", "Fortuna Düsseldorf", "Freiburg", "Frosinone", "Fulham", "Galatasaray", "Genoa", "Getafe", "Girona", "Grêmio", "Guingamp", "Hannover 96", "Hertha Berlim", "Hoffenheim", "Huddersfield Town", "Huesca", "Inter de Milão", "Internacional", "Juventus", "Lazio", "Leganés", "Leicester City", "Levante", "Lille", "Liverpool", "Lyon", "Mainz 05", "Manchester City", "Manchester United", "Marseille", "Milan", "Monaco", "Montpellier", "Nantes", "Napoli", "Newcastle United", "Nice", "Nîmes", "Nürnberg", "Palmeiras", "Paraná", "Paris Saint-Germain", "Parma", "Porto", "PSV Eindhoven", "Rayo Vallecano", "RB Leipzig", "Real Madrid", "Real Sociedad", "Real Valladolid", "Reims", "Rennes", "River Plate", "Roma", "Saint-Étienne", "Sampdoria", "Santos", "São Paulo", "Sassuolo", "Schalke 04", "Sevilla", "Shakhtar Donetsk", "Southampton", "SPAL", "Sport", "Strasbourg", "Stuttgart", "Torino", "Tottenham", "Toulouse", "Udinese", "Valencia", "Vasco da Gama", "Villarreal", "Vitória", "Watford", "Werder Bremen", "West Ham", "Wolfsburg", "Wolverhampton"})
         Me.PesquisaC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.PesquisaC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.PesquisaC.BackColor = System.Drawing.Color.White
@@ -213,38 +252,6 @@ Partial Class Form1
         Me.PesquisaC.TabIndex = 1
         Me.PesquisaC.TabStop = False
         Me.PesquisaC.Text = "Pesquisar Clubes"
-        '
-        'ListaC
-        '
-        Me.ListaC.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ListaC.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
-        Me.ListaC.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ListaC.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListaC.ForeColor = System.Drawing.Color.White
-        Me.ListaC.Location = New System.Drawing.Point(0, 82)
-        Me.ListaC.Name = "ListaC"
-        Me.ListaC.Size = New System.Drawing.Size(230, 508)
-        Me.ListaC.TabIndex = 1
-        Me.ListaC.Text = resources.GetString("ListaC.Text")
-        Me.ListaC.WordWrap = False
-        '
-        'ListaJ
-        '
-        Me.ListaJ.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ListaJ.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
-        Me.ListaJ.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ListaJ.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListaJ.ForeColor = System.Drawing.Color.White
-        Me.ListaJ.Location = New System.Drawing.Point(0, 82)
-        Me.ListaJ.Name = "ListaJ"
-        Me.ListaJ.Size = New System.Drawing.Size(218, 508)
-        Me.ListaJ.TabIndex = 0
-        Me.ListaJ.Text = "Jogador 1" & Global.Microsoft.VisualBasic.ChrW(10) & "Jogador 2" & Global.Microsoft.VisualBasic.ChrW(10) & "Jogador 3" & Global.Microsoft.VisualBasic.ChrW(10) & "Jogador 4" & Global.Microsoft.VisualBasic.ChrW(10) & "Jogador 5" & Global.Microsoft.VisualBasic.ChrW(10) & "Jogador 6" & Global.Microsoft.VisualBasic.ChrW(10) & "Jogador 7" & Global.Microsoft.VisualBasic.ChrW(10) & "Jogador 8"
-        Me.ListaJ.WordWrap = False
         '
         'Label1
         '
@@ -370,16 +377,6 @@ Partial Class Form1
         Me.JColor8.Size = New System.Drawing.Size(10, 80)
         Me.JColor8.TabIndex = 34
         '
-        'Logo8
-        '
-        Me.Logo8.Image = CType(resources.GetObject("Logo8.Image"), System.Drawing.Image)
-        Me.Logo8.Location = New System.Drawing.Point(6, 9)
-        Me.Logo8.Name = "Logo8"
-        Me.Logo8.Size = New System.Drawing.Size(75, 72)
-        Me.Logo8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.Logo8.TabIndex = 26
-        Me.Logo8.TabStop = False
-        '
         'SortJ8
         '
         Me.SortJ8.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -433,16 +430,6 @@ Partial Class Form1
         Me.JColor4.Name = "JColor4"
         Me.JColor4.Size = New System.Drawing.Size(10, 80)
         Me.JColor4.TabIndex = 34
-        '
-        'Logo4
-        '
-        Me.Logo4.Image = CType(resources.GetObject("Logo4.Image"), System.Drawing.Image)
-        Me.Logo4.Location = New System.Drawing.Point(6, 9)
-        Me.Logo4.Name = "Logo4"
-        Me.Logo4.Size = New System.Drawing.Size(75, 72)
-        Me.Logo4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.Logo4.TabIndex = 26
-        Me.Logo4.TabStop = False
         '
         'SortJ4
         '
@@ -498,16 +485,6 @@ Partial Class Form1
         Me.JColor6.Size = New System.Drawing.Size(10, 80)
         Me.JColor6.TabIndex = 34
         '
-        'Logo6
-        '
-        Me.Logo6.Image = CType(resources.GetObject("Logo6.Image"), System.Drawing.Image)
-        Me.Logo6.Location = New System.Drawing.Point(6, 9)
-        Me.Logo6.Name = "Logo6"
-        Me.Logo6.Size = New System.Drawing.Size(75, 72)
-        Me.Logo6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.Logo6.TabIndex = 26
-        Me.Logo6.TabStop = False
-        '
         'SortJ6
         '
         Me.SortJ6.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -561,16 +538,6 @@ Partial Class Form1
         Me.JColor2.Name = "JColor2"
         Me.JColor2.Size = New System.Drawing.Size(10, 80)
         Me.JColor2.TabIndex = 34
-        '
-        'Logo2
-        '
-        Me.Logo2.Image = CType(resources.GetObject("Logo2.Image"), System.Drawing.Image)
-        Me.Logo2.Location = New System.Drawing.Point(6, 9)
-        Me.Logo2.Name = "Logo2"
-        Me.Logo2.Size = New System.Drawing.Size(75, 72)
-        Me.Logo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.Logo2.TabIndex = 26
-        Me.Logo2.TabStop = False
         '
         'SortJ2
         '
@@ -626,16 +593,6 @@ Partial Class Form1
         Me.JColor7.Size = New System.Drawing.Size(10, 80)
         Me.JColor7.TabIndex = 34
         '
-        'Logo7
-        '
-        Me.Logo7.Image = CType(resources.GetObject("Logo7.Image"), System.Drawing.Image)
-        Me.Logo7.Location = New System.Drawing.Point(6, 9)
-        Me.Logo7.Name = "Logo7"
-        Me.Logo7.Size = New System.Drawing.Size(75, 72)
-        Me.Logo7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.Logo7.TabIndex = 26
-        Me.Logo7.TabStop = False
-        '
         'SortJ7
         '
         Me.SortJ7.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -689,16 +646,6 @@ Partial Class Form1
         Me.JColor3.Name = "JColor3"
         Me.JColor3.Size = New System.Drawing.Size(10, 80)
         Me.JColor3.TabIndex = 34
-        '
-        'Logo3
-        '
-        Me.Logo3.Image = CType(resources.GetObject("Logo3.Image"), System.Drawing.Image)
-        Me.Logo3.Location = New System.Drawing.Point(6, 9)
-        Me.Logo3.Name = "Logo3"
-        Me.Logo3.Size = New System.Drawing.Size(75, 72)
-        Me.Logo3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.Logo3.TabIndex = 26
-        Me.Logo3.TabStop = False
         '
         'SortJ3
         '
@@ -754,16 +701,6 @@ Partial Class Form1
         Me.JColor5.Size = New System.Drawing.Size(10, 80)
         Me.JColor5.TabIndex = 34
         '
-        'Logo5
-        '
-        Me.Logo5.Image = CType(resources.GetObject("Logo5.Image"), System.Drawing.Image)
-        Me.Logo5.Location = New System.Drawing.Point(6, 9)
-        Me.Logo5.Name = "Logo5"
-        Me.Logo5.Size = New System.Drawing.Size(75, 72)
-        Me.Logo5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.Logo5.TabIndex = 26
-        Me.Logo5.TabStop = False
-        '
         'SortJ5
         '
         Me.SortJ5.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -817,16 +754,6 @@ Partial Class Form1
         Me.JColor1.Name = "JColor1"
         Me.JColor1.Size = New System.Drawing.Size(10, 80)
         Me.JColor1.TabIndex = 34
-        '
-        'Logo1
-        '
-        Me.Logo1.Image = Global.Sorteio_de_Times.My.Resources.Resources.generic_logo
-        Me.Logo1.Location = New System.Drawing.Point(6, 9)
-        Me.Logo1.Name = "Logo1"
-        Me.Logo1.Size = New System.Drawing.Size(75, 72)
-        Me.Logo1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.Logo1.TabIndex = 26
-        Me.Logo1.TabStop = False
         '
         'Panel5
         '
@@ -907,14 +834,58 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.PnlListaJ.BackColor = System.Drawing.Color.FromArgb(CType(CType(95, Byte), Integer), CType(CType(95, Byte), Integer), CType(CType(95, Byte), Integer))
         Me.PnlListaJ.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PnlListaJ.Controls.Add(Me.DataGridView1)
         Me.PnlListaJ.Controls.Add(Me.Label1)
         Me.PnlListaJ.Controls.Add(Me.AddJ)
-        Me.PnlListaJ.Controls.Add(Me.ListaJ)
         Me.PnlListaJ.Location = New System.Drawing.Point(0, 75)
         Me.PnlListaJ.Name = "PnlListaJ"
         Me.PnlListaJ.Size = New System.Drawing.Size(220, 592)
         Me.PnlListaJ.TabIndex = 1
         Me.PnlListaJ.TabStop = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToResizeColumns = False
+        Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
+        Me.DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.ColumnHeadersVisible = False
+        Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Arrow
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle4
+        Me.DataGridView1.EnableHeadersVisualStyles = False
+        Me.DataGridView1.Location = New System.Drawing.Point(-1, 82)
+        Me.DataGridView1.MultiSelect = False
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.RowTemplate.Height = 28
+        Me.DataGridView1.RowTemplate.ReadOnly = True
+        Me.DataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.Size = New System.Drawing.Size(220, 509)
+        Me.DataGridView1.TabIndex = 3
+        Me.DataGridView1.TabStop = False
         '
         'AddJ
         '
@@ -931,6 +902,96 @@ Partial Class Form1
         Me.AddJ.TabIndex = 0
         Me.AddJ.TabStop = False
         Me.AddJ.Text = "Adicionar Jogadores"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Sorteio_de_Times.My.Resources.Resources.pesleague
+        Me.PictureBox1.Location = New System.Drawing.Point(27, 2)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(399, 70)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
+        'Logo8
+        '
+        Me.Logo8.Image = CType(resources.GetObject("Logo8.Image"), System.Drawing.Image)
+        Me.Logo8.Location = New System.Drawing.Point(6, 9)
+        Me.Logo8.Name = "Logo8"
+        Me.Logo8.Size = New System.Drawing.Size(75, 72)
+        Me.Logo8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Logo8.TabIndex = 26
+        Me.Logo8.TabStop = False
+        '
+        'Logo4
+        '
+        Me.Logo4.Image = CType(resources.GetObject("Logo4.Image"), System.Drawing.Image)
+        Me.Logo4.Location = New System.Drawing.Point(6, 9)
+        Me.Logo4.Name = "Logo4"
+        Me.Logo4.Size = New System.Drawing.Size(75, 72)
+        Me.Logo4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Logo4.TabIndex = 26
+        Me.Logo4.TabStop = False
+        '
+        'Logo6
+        '
+        Me.Logo6.Image = CType(resources.GetObject("Logo6.Image"), System.Drawing.Image)
+        Me.Logo6.Location = New System.Drawing.Point(6, 9)
+        Me.Logo6.Name = "Logo6"
+        Me.Logo6.Size = New System.Drawing.Size(75, 72)
+        Me.Logo6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Logo6.TabIndex = 26
+        Me.Logo6.TabStop = False
+        '
+        'Logo2
+        '
+        Me.Logo2.Image = CType(resources.GetObject("Logo2.Image"), System.Drawing.Image)
+        Me.Logo2.Location = New System.Drawing.Point(6, 9)
+        Me.Logo2.Name = "Logo2"
+        Me.Logo2.Size = New System.Drawing.Size(75, 72)
+        Me.Logo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Logo2.TabIndex = 26
+        Me.Logo2.TabStop = False
+        '
+        'Logo7
+        '
+        Me.Logo7.Image = CType(resources.GetObject("Logo7.Image"), System.Drawing.Image)
+        Me.Logo7.Location = New System.Drawing.Point(6, 9)
+        Me.Logo7.Name = "Logo7"
+        Me.Logo7.Size = New System.Drawing.Size(75, 72)
+        Me.Logo7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Logo7.TabIndex = 26
+        Me.Logo7.TabStop = False
+        '
+        'Logo3
+        '
+        Me.Logo3.Image = CType(resources.GetObject("Logo3.Image"), System.Drawing.Image)
+        Me.Logo3.Location = New System.Drawing.Point(6, 9)
+        Me.Logo3.Name = "Logo3"
+        Me.Logo3.Size = New System.Drawing.Size(75, 72)
+        Me.Logo3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Logo3.TabIndex = 26
+        Me.Logo3.TabStop = False
+        '
+        'Logo5
+        '
+        Me.Logo5.Image = CType(resources.GetObject("Logo5.Image"), System.Drawing.Image)
+        Me.Logo5.Location = New System.Drawing.Point(6, 9)
+        Me.Logo5.Name = "Logo5"
+        Me.Logo5.Size = New System.Drawing.Size(75, 72)
+        Me.Logo5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Logo5.TabIndex = 26
+        Me.Logo5.TabStop = False
+        '
+        'Logo1
+        '
+        Me.Logo1.Image = Global.Sorteio_de_Times.My.Resources.Resources.generic_logo
+        Me.Logo1.Location = New System.Drawing.Point(6, 9)
+        Me.Logo1.Name = "Logo1"
+        Me.Logo1.Size = New System.Drawing.Size(75, 72)
+        Me.Logo1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Logo1.TabIndex = 26
+        Me.Logo1.TabStop = False
         '
         'Form1
         '
@@ -951,49 +1012,49 @@ Partial Class Form1
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
         Me.Panel2.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlListaC.ResumeLayout(False)
         Me.PnlListaC.PerformLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         Me.PJ8.ResumeLayout(False)
         Me.PJ8.PerformLayout()
-        CType(Me.Logo8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PJ4.ResumeLayout(False)
         Me.PJ4.PerformLayout()
-        CType(Me.Logo4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PJ6.ResumeLayout(False)
         Me.PJ6.PerformLayout()
-        CType(Me.Logo6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PJ2.ResumeLayout(False)
         Me.PJ2.PerformLayout()
-        CType(Me.Logo2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PJ7.ResumeLayout(False)
         Me.PJ7.PerformLayout()
-        CType(Me.Logo7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PJ3.ResumeLayout(False)
         Me.PJ3.PerformLayout()
-        CType(Me.Logo3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PJ5.ResumeLayout(False)
         Me.PJ5.PerformLayout()
-        CType(Me.Logo5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PJ1.ResumeLayout(False)
         Me.PJ1.PerformLayout()
-        CType(Me.Logo1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.PnlListaJ.ResumeLayout(False)
         Me.PnlListaJ.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Logo8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Logo4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Logo6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Logo2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Logo7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Logo3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Logo5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Logo1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents PnlListaC As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents ListaC As RichTextBox
-    Friend WithEvents ListaJ As RichTextBox
     Friend WithEvents SortJ1 As TextBox
     Friend WithEvents BtnSort As Button
     Friend WithEvents SortC1 As TextBox
@@ -1053,4 +1114,6 @@ Partial Class Form1
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents PesquisaC As TextBox
     Friend WithEvents AddJ As TextBox
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DataGridView2 As DataGridView
 End Class
