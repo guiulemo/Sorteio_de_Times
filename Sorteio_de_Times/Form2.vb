@@ -3,9 +3,9 @@
 Public Class Form2
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
-        Me.WindowState = FormWindowState.Maximized
-        Me.CancelButton = Form1.BtnCancel
+        FormBorderStyle = Windows.Forms.FormBorderStyle.None
+        WindowState = FormWindowState.Maximized
+        CancelButton = Form1.BtnCancel
         InterromperProcesso = False
     End Sub
 

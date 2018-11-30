@@ -187,7 +187,16 @@ Public Class Form1
     End Sub
     'Botão principal que engatilha o sorteio
     Public Sub BtnSort_Click(sender As Object, e As EventArgs) Handles BtnSort.Click
-        'Organiza() 'Procedimento que organiza as listas de jogadores e times (Linhas em branco, espacos, etc)
+        'Confirmação da realização do sorteio
+        If BtnRegistrar.Enabled = True Then
+            Dim Result As DialogResult
+            Result = MsgBox("Tem certeza de que deseja realizar novo sorteio?", MsgBoxStyle.YesNo + MessageBoxIcon.Question, "Novo sorteio")
+            If Result = MsgBoxResult.No Then
+                Exit Sub
+            End If
+        End If
+
+        'Transforma os nomes do jogadores e dos times de GRID para ARRAY
         GridToArrayJ()
         GridToArrayC()
 
@@ -224,11 +233,11 @@ Public Class Form1
         AddJ.Enabled = False
         PesquisaC.Enabled = False
         BtnSort.Enabled = False
-        BtnLimpar.Enabled = False
+        BtnRegistrar.Enabled = False
         TrackBar1.Enabled = False
 
         'Limpa todos os campos e habilita o botão para cancelar
-        BtnLimpar_Click(sender, e)
+        LimparCampos()
         BtnCancel.Enabled = True
 
         'Ativa o sorteio
@@ -342,9 +351,13 @@ Public Class Form1
             End If
         End If
     End Sub
-    'Limpa todos os campos
-    Private Sub BtnLimpar_Click(sender As Object, e As EventArgs) Handles BtnLimpar.Click
-        For Each c As Object In Me.Panel4.Controls
+    'BOTÃO REGISTRAR
+    Private Sub BtnRegistrar_Click(sender As Object, e As EventArgs) Handles BtnRegistrar.Click
+        ResultTorneio.ShowDialog()
+    End Sub
+    'LIMPAR CAMPOS
+    Public Sub LimparCampos()
+        For Each c As Object In Panel4.Controls
             For Each d As Object In c.Controls
                 If TypeOf d Is TextBox Then
                     DirectCast(d, TextBox).ResetText()
@@ -362,7 +375,7 @@ Public Class Form1
             End If
         Next
         Form2.Close()
-        BtnLimpar_Click(sender, e)
+        LimparCampos()
         ReativaBtn()
     End Sub
     'Controla o nível de "drama"
@@ -380,9 +393,11 @@ Public Class Form1
         AddJ.Enabled = True
         PesquisaC.Enabled = True
         BtnSort.Enabled = True
-        BtnLimpar.Enabled = True
         TrackBar1.Enabled = True
         BtnCancel.Enabled = False
+        If SortJ1.Text <> Nothing Then
+            BtnRegistrar.Enabled = True
+        End If
     End Sub
 
     'ADDJ PRESSIONA ENTER
@@ -421,7 +436,7 @@ Public Class Form1
                     Dim Result As DialogResult
                     Result = MsgBox("Será o primeiro torneio de " & UCase(Trim(AddJ.Text)) & "." & vbCrLf & "Deseja cadastrá-lo(a)?", MsgBoxStyle.YesNo + MessageBoxIcon.Question, "Novo Jogador(a)")
                     If Result = MsgBoxResult.Yes Then
-                        ExecuteNonQuery("Insert Into Jogadores (Nome, Part_ultimo) values ('" & Trim(AddJ.Text) & "','S')", cn)
+                        ExecuteNonQuery("Insert Into Jogadores (Nome, Pontos, Part_ultimo, Participacoes) values ('" & Trim(AddJ.Text) & "', 0, 'S', 0)", cn)
                     Else
                         dtc.Dispose()
                         dtc = Nothing
@@ -659,6 +674,7 @@ Public Class Form1
             dafill("Select Nome From Jogadores Where Part_ultimo = 'S' Order By 1", dt, cn)
             DataGridView1.DataSource = Nothing
             DataGridView1.DataSource = dt
+            GridToArrayJ()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -685,6 +701,23 @@ Public Class Form1
 
     'FORM1 CLOSING
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        If BtnRegistrar.Enabled = False Then
+            GoTo Finaliza
+        End If
+
+        Dim Result As DialogResult
+        Result = MsgBox("Deseja registrar o torneio antes de fechar o programa?", MsgBoxStyle.YesNoCancel + MessageBoxIcon.Exclamation, "Registro")
+        If Result = MsgBoxResult.Yes Then
+            Hide()
+            ResultTorneio.ShowDialog()
+            If Visible = True Then
+                e.Cancel = True
+            End If
+        ElseIf Result = MsgBoxResult.Cancel Then
+            e.Cancel = True
+        End If
+
+Finaliza:
         Dim cn As New SQLiteConnection(constr)
         Try
             cn.Open()
@@ -695,14 +728,17 @@ Public Class Form1
             Exit Sub
         End Try
 
-        ExecuteNonQuery("Update Jogadores SET Part_ultimo = 'S'", cn)
+        For i As Integer = 0 To AListaJ.GetUpperBound(0)
+            ExecuteNonQuery("Update Jogadores SET Part_ultimo = 'S' where Nome = '" & AListaJ(i) & "'", cn)
+        Next
 
         cn.Close()
         cn.Dispose()
         cn = Nothing
     End Sub
 
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+    Private Sub BtnRanking_Click(sender As Object, e As EventArgs) Handles BtnRanking.Click
         Estatisticas.Show()
     End Sub
+
 End Class
