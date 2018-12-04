@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Estatisticas
     Inherits System.Windows.Forms.Form
 
     'Descartar substituições de formulário para limpar a lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,17 @@ Partial Class Estatisticas
     'OBSERVAÇÃO: o procedimento a seguir é exigido pelo Windows Form Designer
     'Pode ser modificado usando o Windows Form Designer.  
     'Não o modifique usando o editor de códigos.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.PnlE = New System.Windows.Forms.Panel()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PnlMain = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.LblClassif = New System.Windows.Forms.Label()
@@ -41,7 +45,8 @@ Partial Class Estatisticas
         Me.LblTime = New System.Windows.Forms.Label()
         Me.Escudo = New System.Windows.Forms.PictureBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.PnlE.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PnlMain.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -53,17 +58,53 @@ Partial Class Estatisticas
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'PnlE
+        'ToolTip1
         '
-        Me.PnlE.BackColor = System.Drawing.Color.Transparent
-        Me.PnlE.Controls.Add(Me.Panel2)
-        Me.PnlE.Controls.Add(Me.Panel1)
-        Me.PnlE.Controls.Add(Me.DataGridView1)
-        Me.PnlE.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PnlE.Location = New System.Drawing.Point(0, 0)
-        Me.PnlE.Name = "PnlE"
-        Me.PnlE.Size = New System.Drawing.Size(1036, 480)
-        Me.PnlE.TabIndex = 35
+        Me.ToolTip1.AutoPopDelay = 15000
+        Me.ToolTip1.BackColor = System.Drawing.Color.White
+        Me.ToolTip1.InitialDelay = 500
+        Me.ToolTip1.ReshowDelay = 100
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = Global.Sorteio_de_Times.My.Resources.Resources.Info
+        Me.PictureBox1.Location = New System.Drawing.Point(575, 20)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(25, 25)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 5
+        Me.PictureBox1.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox1, "Critérios de classificação:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "1 - Pontos" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "2 - Nº de vezes Campeão" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "3 - Nº de vez" &
+        "es Vice" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "4 - Aproveitamento")
+        '
+        'PnlMain
+        '
+        Me.PnlMain.BackColor = System.Drawing.Color.White
+        Me.PnlMain.BackgroundImage = Global.Sorteio_de_Times.My.Resources.Resources.Background
+        Me.PnlMain.Controls.Add(Me.Label1)
+        Me.PnlMain.Controls.Add(Me.Panel2)
+        Me.PnlMain.Controls.Add(Me.Panel1)
+        Me.PnlMain.Controls.Add(Me.DataGridView1)
+        Me.PnlMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PnlMain.Location = New System.Drawing.Point(0, 0)
+        Me.PnlMain.Name = "PnlMain"
+        Me.PnlMain.Size = New System.Drawing.Size(1036, 518)
+        Me.PnlMain.TabIndex = 35
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(12, 472)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(622, 37)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "Campeão: +3 Pontos" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Vice: +1 Ponto"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Panel2
         '
@@ -78,6 +119,7 @@ Partial Class Estatisticas
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(80, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.PictureBox1)
         Me.Panel3.Controls.Add(Me.LblClassif)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
@@ -125,8 +167,7 @@ Partial Class Estatisticas
         '
         'Panel1
         '
-        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.BackColor = System.Drawing.Color.Transparent
         Me.Panel1.Controls.Add(Me.Bloco)
         Me.Panel1.Location = New System.Drawing.Point(646, 85)
         Me.Panel1.Name = "Panel1"
@@ -219,8 +260,6 @@ Partial Class Estatisticas
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AllowUserToResizeColumns = False
         Me.DataGridView1.AllowUserToResizeRows = False
-        Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(222, Byte), Integer))
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
@@ -278,16 +317,16 @@ Partial Class Estatisticas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.BackgroundImage = Global.Sorteio_de_Times.My.Resources.Resources.Background
-        Me.ClientSize = New System.Drawing.Size(1036, 480)
-        Me.Controls.Add(Me.PnlE)
+        Me.ClientSize = New System.Drawing.Size(1036, 518)
+        Me.Controls.Add(Me.PnlMain)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "Estatisticas"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Estatisticas"
-        Me.PnlE.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PnlMain.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
@@ -310,11 +349,14 @@ Partial Class Estatisticas
     Friend WithEvents LblJogador As Label
     Friend WithEvents PnlTime As Panel
     Friend WithEvents LblTime As Label
-    Friend WithEvents PnlE As Panel
+    Friend WithEvents PnlMain As Panel
     Friend WithEvents JColor As Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents LblClassif As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents Label1 As Label
 End Class

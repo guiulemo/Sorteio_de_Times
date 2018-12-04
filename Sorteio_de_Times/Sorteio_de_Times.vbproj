@@ -69,7 +69,7 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>escudobranco2.ico</ApplicationIcon>
+    <ApplicationIcon>PES-YO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -367,6 +367,8 @@
   <ItemGroup>
     <Content Include="escudobranco2.ico" />
     <Content Include="icopesred.ico" />
+    <Content Include="PES-YO.ico" />
+    <None Include="Resources\Info.png" />
     <None Include="Resources\Classificação.png" />
   </ItemGroup>
   <ItemGroup>

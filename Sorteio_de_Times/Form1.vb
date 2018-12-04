@@ -97,7 +97,7 @@ Module Modulo1
         AListaC = output
     End Sub
 
-    Sub Clube_autocomplete()
+    Public Sub Clube_autocomplete()
         Dim cn As New SQLiteConnection(constr)
         Try
             cn.Open()
@@ -121,7 +121,7 @@ Module Modulo1
         cn.Close()
     End Sub
 
-    Sub Jogador_autocomplete()
+    Public Sub Jogador_autocomplete()
         Dim cn As New SQLiteConnection(constr)
         Try
             cn.Open()
@@ -172,7 +172,7 @@ Public Class Form1
         cm = Nothing
     End Sub
 
-    'Procedimento que reordena aleatoriamente uma lista de items
+    'SHUFFLE
     Public Sub Shuffle(items As String())
         Dim j As Int32
         Dim temp As String
@@ -185,7 +185,7 @@ Public Class Form1
             items(j) = temp
         Next n
     End Sub
-    'Botão principal que engatilha o sorteio
+    'BOTÃO SORTEAR
     Public Sub BtnSort_Click(sender As Object, e As EventArgs) Handles BtnSort.Click
         'Confirmação da realização do sorteio
         If BtnRegistrar.Enabled = True Then
@@ -289,6 +289,7 @@ Public Class Form1
             If i > NumJog Then
                 i = 1
                 ReativaBtn()
+                SalvaPosicao()
                 Exit Sub
             Else
                 Timer1.Enabled = True
@@ -340,6 +341,7 @@ Public Class Form1
                 Wait(3)
                 Form2.Close()
                 ReativaBtn()
+                SalvaPosicao()
                 Exit Sub
             Else
                 Wait(3)
@@ -390,7 +392,7 @@ Public Class Form1
     End Sub
     'Reativa os botões
     Public Sub ReativaBtn()
-        AddJ.Enabled = True
+        ConfereLimite()
         PesquisaC.Enabled = True
         BtnSort.Enabled = True
         TrackBar1.Enabled = True
@@ -476,7 +478,7 @@ Public Class Form1
             cn.Dispose()
             cn = Nothing
 
-            AddJ.Text = ""
+            ConfereLimite()
         End If
     End Sub
     'DELETE JOGADOR
@@ -519,6 +521,11 @@ Public Class Form1
             cn.Close()
             cn.Dispose()
             cn = Nothing
+
+            If DataGridView1.Rows.Count < 8 Then
+                AddJ.Enabled = True
+                AddJ.Text = "Adicionar Jogadores"
+            End If
         End If
     End Sub
     'PESQUISA CLUBE
@@ -674,7 +681,7 @@ Public Class Form1
             dafill("Select Nome From Jogadores Where Part_ultimo = 'S' Order By 1", dt, cn)
             DataGridView1.DataSource = Nothing
             DataGridView1.DataSource = dt
-            GridToArrayJ()
+            ConfereLimite()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -702,7 +709,7 @@ Public Class Form1
     'FORM1 CLOSING
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         If BtnRegistrar.Enabled = False Then
-            GoTo Finaliza
+            Exit Sub
         End If
 
         Dim Result As DialogResult
@@ -717,7 +724,13 @@ Public Class Form1
             e.Cancel = True
         End If
 
-Finaliza:
+    End Sub
+
+    Private Sub BtnRanking_Click(sender As Object, e As EventArgs) Handles BtnRanking.Click
+        Estatisticas.Show()
+    End Sub
+
+    Public Sub SalvaPosicao()
         Dim cn As New SQLiteConnection(constr)
         Try
             cn.Open()
@@ -728,8 +741,12 @@ Finaliza:
             Exit Sub
         End Try
 
+        ExecuteNonQuery("Update Jogadores SET PosPart_ultimo = NULL", cn)
+        ExecuteNonQuery("Update Clubes SET PosPart_ultimo = NULL", cn)
+
         For i As Integer = 0 To AListaJ.GetUpperBound(0)
-            ExecuteNonQuery("Update Jogadores SET Part_ultimo = 'S' where Nome = '" & AListaJ(i) & "'", cn)
+            ExecuteNonQuery("Update Jogadores SET Part_ultimo = 'S', PosPart_ultimo = " & i & " where Nome = '" & AListaJ(i) & "'", cn)
+            ExecuteNonQuery("Update Clubes SET PosPart_ultimo = " & i & " where Nome = '" & AListaC(i) & "'", cn)
         Next
 
         cn.Close()
@@ -737,8 +754,90 @@ Finaliza:
         cn = Nothing
     End Sub
 
-    Private Sub BtnRanking_Click(sender As Object, e As EventArgs) Handles BtnRanking.Click
-        Estatisticas.Show()
+    Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If BtnRegistrar.Enabled = True Then
+            Exit Sub
+        End If
+
+        If e.KeyCode = Keys.F1 Then
+            Dim cn As New SQLiteConnection(constr)
+            Try
+                cn.Open()
+            Catch ex As Exception
+                cn.Dispose()
+                cn = Nothing
+                MsgBox(ex.Message)
+                Exit Sub
+            End Try
+
+            Dim dt0 As New DataTable
+            Try
+                dafill("SELECT Count(PosPart_ultimo)
+                    FROM Clubes", dt0, cn)
+                If dt0.Rows(0)(0) = 0 Then
+                    MsgBox("O último torneio já foi registrado", MsgBoxStyle.Information, "Atenção")
+                    GoTo Encerra
+                End If
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+            Dim Result As MsgBoxResult
+            Result = MsgBox("Deseja recuperar os dados do último sorteio realizado?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Recuperar sorteio")
+
+            If Result = MsgBoxResult.No Then
+                GoTo Encerra
+            End If
+
+            Dim dt As New DataTable
+            Try
+                dafill("Select j.Nome, c.Nome As 'Clube'
+                            From Jogadores j, Clubes c
+                            Where j.PosPart_ultimo = c.PosPart_ultimo
+                            Order By j.PosPart_ultimo", dt, cn)
+                Dim Jogadores(dt0.Rows(0)(0) - 1) As String
+                Dim Clubes(dt0.Rows(0)(0) - 1) As String
+                For i As Integer = 1 To dt.Rows.Count
+                    Jogadores(i - 1) = dt.Rows(i - 1)(0)
+                    Clubes(i - 1) = dt.Rows(i - 1)(1)
+
+                    RefCxTxtJ(i).Text = dt.Rows(i - 1)(0)
+                    RefCxTxtC(i).Text = dt.Rows(i - 1)(1)
+                    Esc = AdequaNome(RefCxTxtC(i).Text)
+                    RefLogo(i).Image = My.Resources.ResourceManager.GetObject(Esc)
+
+                    If My.Resources.ResourceManager.GetObject(Esc) Is Nothing Then
+                        RefLogo(i).Image = My.Resources.generic_logo
+                    Else
+                        RefLogo(i).Image = My.Resources.ResourceManager.GetObject(Esc)
+                    End If
+                Next
+                AListaJ = Jogadores
+                AListaC = Clubes
+                BtnRegistrar.Enabled = True
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+            dt.Dispose()
+            dt = Nothing
+Encerra:
+            dt0.Dispose()
+            dt0 = Nothing
+            cn.Close()
+            cn.Dispose()
+            cn = Nothing
+        End If
     End Sub
 
+    'LIMITE JOGADORES
+    Public Sub ConfereLimite()
+        If DataGridView1.Rows.Count = 8 Then
+            AddJ.ForeColor = Color.FromArgb(109, 109, 109)
+            AddJ.Enabled = False
+            AddJ.Text = "Limite atingido (8)"
+        Else
+            AddJ.Enabled = True
+        End If
+    End Sub
 End Class

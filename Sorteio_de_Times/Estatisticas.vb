@@ -62,7 +62,7 @@ Public Class Estatisticas
                     ORDER BY t.id DESC
                     LIMIT 1", dtc, cn)
                 LblJogador.Text = UCase(dtc.Rows(0)(0))
-                LblTime.Text = dtc.Rows(0)(1)
+                LblTime.Text = UCase(dtc.Rows(0)(1))
 
                 Esc = AdequaNome(LblTime.Text)
                 If My.Resources.ResourceManager.GetObject(Esc) Is Nothing Then
@@ -98,5 +98,4 @@ Public Class Estatisticas
         cn.Dispose()
         cn = Nothing
     End Sub
-
 End Class

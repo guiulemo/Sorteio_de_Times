@@ -159,6 +159,9 @@ Public Class ResultTorneio
             ExecuteNonQuery("Update Jogadores SET Part_ultimo = 'S', Participacoes = Participacoes + 1 WHERE Nome = '" & AListaJ(i) & "' ", cn)
         Next
 
+        ExecuteNonQuery("Update Jogadores SET PosPart_ultimo = NULL", cn)
+        ExecuteNonQuery("Update Clubes SET PosPart_ultimo = NULL", cn)
+
         tblC.Dispose()
         tblC = Nothing
         tblV.Dispose()
