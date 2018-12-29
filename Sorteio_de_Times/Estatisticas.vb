@@ -1,4 +1,5 @@
-﻿Imports System.Data.SQLite
+﻿Imports System.ComponentModel
+Imports System.Data.SQLite
 
 Public Class Estatisticas
     Private Sub dafill(ByVal q As String, ByVal tbl As DataTable, ByVal cn As SQLiteConnection)
@@ -42,12 +43,13 @@ Public Class Estatisticas
                     LEFT JOIN Torneios t ON j.id = t.Vice
                     GROUP BY 1
                     )
-                    GROUP BY 1
+                    GROUP BY 1 
                     ORDER BY 2 DESC, 3 DESC, 4 DESC, 5 ASC", cn)
 
             dafill("SELECT rowid As '#', J As 'Jogador', PO As 'Pontos', C As 'Campeão', V As 'Vice', P As 'Presença' FROM tmp_ranking", dt, cn)
             DataGridView1.DataSource = Nothing
             DataGridView1.DataSource = dt
+            
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -97,5 +99,11 @@ Public Class Estatisticas
         cn.Close()
         cn.Dispose()
         cn = Nothing
+    End Sub
+
+    Private Sub Estatisticas_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        If ExitProgram = True Then
+            Form1.Close()
+        End If
     End Sub
 End Class

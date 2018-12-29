@@ -23,13 +23,13 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PnlListaC = New System.Windows.Forms.Panel()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -89,13 +89,17 @@ Partial Class Form1
         Me.PnlListaJ = New System.Windows.Forms.Panel()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.AddJ = New System.Windows.Forms.TextBox()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.BtnRanking = New System.Windows.Forms.Button()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.Teste1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ItemGBD = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ItemRecupSorteio = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.BtnRanking = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.PnlListaC.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -121,6 +125,7 @@ Partial Class Form1
         Me.GroupBox1.SuspendLayout()
         Me.PnlListaJ.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel7.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -137,9 +142,9 @@ Partial Class Form1
         Me.PnlListaC.Controls.Add(Me.DataGridView2)
         Me.PnlListaC.Controls.Add(Me.Label2)
         Me.PnlListaC.Controls.Add(Me.PesquisaC)
-        Me.PnlListaC.Location = New System.Drawing.Point(220, 75)
+        Me.PnlListaC.Location = New System.Drawing.Point(220, 98)
         Me.PnlListaC.Name = "PnlListaC"
-        Me.PnlListaC.Size = New System.Drawing.Size(232, 592)
+        Me.PnlListaC.Size = New System.Drawing.Size(232, 585)
         Me.PnlListaC.TabIndex = 0
         Me.PnlListaC.TabStop = True
         '
@@ -148,33 +153,33 @@ Partial Class Form1
         Me.DataGridView2.AllowUserToAddRows = False
         Me.DataGridView2.AllowUserToResizeColumns = False
         Me.DataGridView2.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(155, Byte), Integer), CType(CType(155, Byte), Integer))
-        Me.DataGridView2.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(155, Byte), Integer), CType(CType(155, Byte), Integer))
+        Me.DataGridView2.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridView2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
         Me.DataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.DataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.ColumnHeadersVisible = False
         Me.DataGridView2.Cursor = System.Windows.Forms.Cursors.Arrow
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer))
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridView2.EnableHeadersVisualStyles = False
         Me.DataGridView2.Location = New System.Drawing.Point(-1, 82)
         Me.DataGridView2.MultiSelect = False
@@ -186,20 +191,21 @@ Partial Class Form1
         Me.DataGridView2.RowTemplate.ReadOnly = True
         Me.DataGridView2.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridView2.ShowCellToolTips = False
-        Me.DataGridView2.Size = New System.Drawing.Size(232, 515)
+        Me.DataGridView2.Size = New System.Drawing.Size(232, 502)
         Me.DataGridView2.TabIndex = 4
         Me.DataGridView2.TabStop = False
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(39, 6)
+        Me.Label2.Location = New System.Drawing.Point(-1, 6)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(153, 28)
+        Me.Label2.Size = New System.Drawing.Size(232, 28)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Lista de Clubes"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.ToolTip1.SetToolTip(Me.Label2, "Clique duas vezes para alternar entre clubes ou seleções")
         '
         'PesquisaC
         '
@@ -219,14 +225,14 @@ Partial Class Form1
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(16, 6)
+        Me.Label1.Location = New System.Drawing.Point(-1, 6)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(187, 28)
+        Me.Label1.Size = New System.Drawing.Size(220, 28)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Lista de Jogadores"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'SortJ1
         '
@@ -314,9 +320,9 @@ Partial Class Form1
         Me.Panel4.Controls.Add(Me.PJ3)
         Me.Panel4.Controls.Add(Me.PJ5)
         Me.Panel4.Controls.Add(Me.PJ1)
-        Me.Panel4.Location = New System.Drawing.Point(452, 75)
+        Me.Panel4.Location = New System.Drawing.Point(452, 98)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(809, 463)
+        Me.Panel4.Size = New System.Drawing.Size(809, 456)
         Me.Panel4.TabIndex = 29
         '
         'PJ8
@@ -327,7 +333,7 @@ Partial Class Form1
         Me.PJ8.Controls.Add(Me.Logo8)
         Me.PJ8.Controls.Add(Me.SortJ8)
         Me.PJ8.Controls.Add(Me.SortC8)
-        Me.PJ8.Location = New System.Drawing.Point(426, 354)
+        Me.PJ8.Location = New System.Drawing.Point(421, 347)
         Me.PJ8.Name = "PJ8"
         Me.PJ8.Size = New System.Drawing.Size(360, 90)
         Me.PJ8.TabIndex = 42
@@ -391,7 +397,7 @@ Partial Class Form1
         Me.PJ4.Controls.Add(Me.Logo4)
         Me.PJ4.Controls.Add(Me.SortJ4)
         Me.PJ4.Controls.Add(Me.SortC4)
-        Me.PJ4.Location = New System.Drawing.Point(426, 130)
+        Me.PJ4.Location = New System.Drawing.Point(421, 129)
         Me.PJ4.Name = "PJ4"
         Me.PJ4.Size = New System.Drawing.Size(360, 90)
         Me.PJ4.TabIndex = 38
@@ -455,7 +461,7 @@ Partial Class Form1
         Me.PJ6.Controls.Add(Me.Logo6)
         Me.PJ6.Controls.Add(Me.SortJ6)
         Me.PJ6.Controls.Add(Me.SortC6)
-        Me.PJ6.Location = New System.Drawing.Point(426, 242)
+        Me.PJ6.Location = New System.Drawing.Point(421, 238)
         Me.PJ6.Name = "PJ6"
         Me.PJ6.Size = New System.Drawing.Size(360, 90)
         Me.PJ6.TabIndex = 40
@@ -519,7 +525,7 @@ Partial Class Form1
         Me.PJ2.Controls.Add(Me.Logo2)
         Me.PJ2.Controls.Add(Me.SortJ2)
         Me.PJ2.Controls.Add(Me.SortC2)
-        Me.PJ2.Location = New System.Drawing.Point(426, 18)
+        Me.PJ2.Location = New System.Drawing.Point(421, 20)
         Me.PJ2.Name = "PJ2"
         Me.PJ2.Size = New System.Drawing.Size(360, 90)
         Me.PJ2.TabIndex = 36
@@ -583,7 +589,7 @@ Partial Class Form1
         Me.PJ7.Controls.Add(Me.Logo7)
         Me.PJ7.Controls.Add(Me.SortJ7)
         Me.PJ7.Controls.Add(Me.SortC7)
-        Me.PJ7.Location = New System.Drawing.Point(23, 354)
+        Me.PJ7.Location = New System.Drawing.Point(28, 347)
         Me.PJ7.Name = "PJ7"
         Me.PJ7.Size = New System.Drawing.Size(360, 90)
         Me.PJ7.TabIndex = 41
@@ -647,7 +653,7 @@ Partial Class Form1
         Me.PJ3.Controls.Add(Me.Logo3)
         Me.PJ3.Controls.Add(Me.SortJ3)
         Me.PJ3.Controls.Add(Me.SortC3)
-        Me.PJ3.Location = New System.Drawing.Point(23, 130)
+        Me.PJ3.Location = New System.Drawing.Point(28, 129)
         Me.PJ3.Name = "PJ3"
         Me.PJ3.Size = New System.Drawing.Size(360, 90)
         Me.PJ3.TabIndex = 37
@@ -711,7 +717,7 @@ Partial Class Form1
         Me.PJ5.Controls.Add(Me.Logo5)
         Me.PJ5.Controls.Add(Me.SortJ5)
         Me.PJ5.Controls.Add(Me.SortC5)
-        Me.PJ5.Location = New System.Drawing.Point(23, 242)
+        Me.PJ5.Location = New System.Drawing.Point(28, 238)
         Me.PJ5.Name = "PJ5"
         Me.PJ5.Size = New System.Drawing.Size(360, 90)
         Me.PJ5.TabIndex = 39
@@ -775,7 +781,7 @@ Partial Class Form1
         Me.PJ1.Controls.Add(Me.Logo1)
         Me.PJ1.Controls.Add(Me.SortJ1)
         Me.PJ1.Controls.Add(Me.SortC1)
-        Me.PJ1.Location = New System.Drawing.Point(23, 18)
+        Me.PJ1.Location = New System.Drawing.Point(28, 20)
         Me.PJ1.Name = "PJ1"
         Me.PJ1.Size = New System.Drawing.Size(360, 90)
         Me.PJ1.TabIndex = 35
@@ -805,7 +811,7 @@ Partial Class Form1
         Me.Panel5.Controls.Add(Me.GroupBox2)
         Me.Panel5.Controls.Add(Me.GroupBox1)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel5.Location = New System.Drawing.Point(0, 537)
+        Me.Panel5.Location = New System.Drawing.Point(0, 553)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(1261, 130)
         Me.Panel5.TabIndex = 30
@@ -882,9 +888,9 @@ Partial Class Form1
         Me.PnlListaJ.Controls.Add(Me.DataGridView1)
         Me.PnlListaJ.Controls.Add(Me.Label1)
         Me.PnlListaJ.Controls.Add(Me.AddJ)
-        Me.PnlListaJ.Location = New System.Drawing.Point(0, 75)
+        Me.PnlListaJ.Location = New System.Drawing.Point(0, 98)
         Me.PnlListaJ.Name = "PnlListaJ"
-        Me.PnlListaJ.Size = New System.Drawing.Size(220, 592)
+        Me.PnlListaJ.Size = New System.Drawing.Size(220, 585)
         Me.PnlListaJ.TabIndex = 1
         Me.PnlListaJ.TabStop = True
         '
@@ -893,33 +899,33 @@ Partial Class Form1
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToResizeColumns = False
         Me.DataGridView1.AllowUserToResizeRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(155, Byte), Integer), CType(CType(155, Byte), Integer))
-        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(155, Byte), Integer), CType(CType(155, Byte), Integer), CType(CType(155, Byte), Integer))
+        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
         Me.DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.ColumnHeadersVisible = False
         Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Arrow
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(20, Byte), Integer))
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle12
         Me.DataGridView1.EnableHeadersVisualStyles = False
         Me.DataGridView1.Location = New System.Drawing.Point(-1, 82)
         Me.DataGridView1.MultiSelect = False
@@ -931,7 +937,7 @@ Partial Class Form1
         Me.DataGridView1.RowTemplate.ReadOnly = True
         Me.DataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridView1.ShowCellToolTips = False
-        Me.DataGridView1.Size = New System.Drawing.Size(220, 509)
+        Me.DataGridView1.Size = New System.Drawing.Size(220, 502)
         Me.DataGridView1.TabIndex = 3
         Me.DataGridView1.TabStop = False
         '
@@ -951,6 +957,64 @@ Partial Class Form1
         Me.AddJ.TabStop = False
         Me.AddJ.Text = "Adicionar Jogadores"
         '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 5000
+        Me.ToolTip1.BackColor = System.Drawing.Color.White
+        Me.ToolTip1.InitialDelay = 300
+        Me.ToolTip1.ReshowDelay = 100
+        '
+        'BtnRanking
+        '
+        Me.BtnRanking.BackColor = System.Drawing.Color.Transparent
+        Me.BtnRanking.BackgroundImage = Global.Sorteio_de_Times.My.Resources.Resources.Classificação
+        Me.BtnRanking.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BtnRanking.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnRanking.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.BtnRanking.FlatAppearance.BorderSize = 0
+        Me.BtnRanking.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray
+        Me.BtnRanking.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnRanking.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRanking.Location = New System.Drawing.Point(392, 24)
+        Me.BtnRanking.Margin = New System.Windows.Forms.Padding(0)
+        Me.BtnRanking.Name = "BtnRanking"
+        Me.BtnRanking.Size = New System.Drawing.Size(40, 34)
+        Me.BtnRanking.TabIndex = 1
+        Me.BtnRanking.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.BtnRanking, "Classificação")
+        Me.BtnRanking.UseVisualStyleBackColor = False
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.Control
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Teste1ToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(1261, 24)
+        Me.MenuStrip1.TabIndex = 31
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'Teste1ToolStripMenuItem
+        '
+        Me.Teste1ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ItemRecupSorteio, Me.ItemGBD})
+        Me.Teste1ToolStripMenuItem.Name = "Teste1ToolStripMenuItem"
+        Me.Teste1ToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.Teste1ToolStripMenuItem.Text = "Arquivo"
+        '
+        'ItemGBD
+        '
+        Me.ItemGBD.Name = "ItemGBD"
+        Me.ItemGBD.ShortcutKeys = System.Windows.Forms.Keys.F2
+        Me.ItemGBD.Size = New System.Drawing.Size(230, 22)
+        Me.ItemGBD.Text = "Gerenciar banco de dados"
+        '
+        'ItemRecupSorteio
+        '
+        Me.ItemRecupSorteio.Name = "ItemRecupSorteio"
+        Me.ItemRecupSorteio.ShortcutKeys = System.Windows.Forms.Keys.F1
+        Me.ItemRecupSorteio.Size = New System.Drawing.Size(230, 22)
+        Me.ItemRecupSorteio.Text = "Recuperar último sorteio"
+        '
         'Panel1
         '
         Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -959,7 +1023,7 @@ Partial Class Form1
         Me.Panel1.BackgroundImage = Global.Sorteio_de_Times.My.Resources.Resources.Background
         Me.Panel1.Controls.Add(Me.Panel7)
         Me.Panel1.Controls.Add(Me.Panel2)
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Location = New System.Drawing.Point(0, 23)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1261, 75)
         Me.Panel1.TabIndex = 0
@@ -996,26 +1060,6 @@ Partial Class Form1
         Me.Panel2.Size = New System.Drawing.Size(452, 78)
         Me.Panel2.TabIndex = 0
         '
-        'BtnRanking
-        '
-        Me.BtnRanking.BackColor = System.Drawing.Color.Transparent
-        Me.BtnRanking.BackgroundImage = Global.Sorteio_de_Times.My.Resources.Resources.Classificação
-        Me.BtnRanking.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BtnRanking.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnRanking.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.BtnRanking.FlatAppearance.BorderSize = 0
-        Me.BtnRanking.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray
-        Me.BtnRanking.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.BtnRanking.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnRanking.Location = New System.Drawing.Point(392, 24)
-        Me.BtnRanking.Margin = New System.Windows.Forms.Padding(0)
-        Me.BtnRanking.Name = "BtnRanking"
-        Me.BtnRanking.Size = New System.Drawing.Size(40, 34)
-        Me.BtnRanking.TabIndex = 1
-        Me.BtnRanking.TabStop = False
-        Me.ToolTip1.SetToolTip(Me.BtnRanking, "Classificação")
-        Me.BtnRanking.UseVisualStyleBackColor = False
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Sorteio_de_Times.My.Resources.Resources.pesleague
@@ -1026,25 +1070,20 @@ Partial Class Form1
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'ToolTip1
-        '
-        Me.ToolTip1.AutoPopDelay = 5000
-        Me.ToolTip1.BackColor = System.Drawing.Color.White
-        Me.ToolTip1.InitialDelay = 300
-        Me.ToolTip1.ReshowDelay = 100
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1261, 667)
+        Me.ClientSize = New System.Drawing.Size(1261, 683)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PnlListaJ)
         Me.Controls.Add(Me.PnlListaC)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel5)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -1085,12 +1124,15 @@ Partial Class Form1
         Me.PnlListaJ.ResumeLayout(False)
         Me.PnlListaJ.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents PnlListaC As Panel
@@ -1159,4 +1201,8 @@ Partial Class Form1
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents BtnRanking As Button
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents Teste1ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ItemGBD As ToolStripMenuItem
+    Friend WithEvents ItemRecupSorteio As ToolStripMenuItem
 End Class

@@ -22,10 +22,10 @@ Partial Class ResultTorneio
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle77 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle78 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle79 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle80 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DgvCamp = New System.Windows.Forms.DataGridView()
         Me.Nome = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PnlCamp = New System.Windows.Forms.Panel()
@@ -38,9 +38,9 @@ Partial Class ResultTorneio
         Me.PnlVice = New System.Windows.Forms.Panel()
         Me.PnlEscVice = New System.Windows.Forms.Panel()
         Me.EscudoV = New System.Windows.Forms.PictureBox()
-        Me.LblVice = New System.Windows.Forms.Label()
         Me.DgvVice = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LblVice = New System.Windows.Forms.Label()
         CType(Me.DgvCamp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlCamp.SuspendLayout()
         Me.PnlEscCamp.SuspendLayout()
@@ -58,8 +58,8 @@ Partial Class ResultTorneio
         Me.DgvCamp.AllowUserToDeleteRows = False
         Me.DgvCamp.AllowUserToResizeColumns = False
         Me.DgvCamp.AllowUserToResizeRows = False
-        DataGridViewCellStyle77.BackColor = System.Drawing.Color.Gainsboro
-        Me.DgvCamp.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle77
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro
+        Me.DgvCamp.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DgvCamp.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.DgvCamp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
@@ -69,14 +69,14 @@ Partial Class ResultTorneio
         Me.DgvCamp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DgvCamp.ColumnHeadersVisible = False
         Me.DgvCamp.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Nome})
-        DataGridViewCellStyle78.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle78.BackColor = System.Drawing.Color.LightGray
-        DataGridViewCellStyle78.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle78.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle78.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(82, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle78.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle78.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DgvCamp.DefaultCellStyle = DataGridViewCellStyle78
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(82, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DgvCamp.DefaultCellStyle = DataGridViewCellStyle2
         Me.DgvCamp.GridColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(222, Byte), Integer))
         Me.DgvCamp.Location = New System.Drawing.Point(0, 0)
         Me.DgvCamp.MultiSelect = False
@@ -101,7 +101,7 @@ Partial Class ResultTorneio
         '
         Me.PnlCamp.Controls.Add(Me.PnlEscCamp)
         Me.PnlCamp.Controls.Add(Me.DgvCamp)
-        Me.PnlCamp.Location = New System.Drawing.Point(18, 75)
+        Me.PnlCamp.Location = New System.Drawing.Point(16, 74)
         Me.PnlCamp.Name = "PnlCamp"
         Me.PnlCamp.Size = New System.Drawing.Size(480, 250)
         Me.PnlCamp.TabIndex = 2
@@ -133,7 +133,7 @@ Partial Class ResultTorneio
         Me.LblCamp.BackColor = System.Drawing.Color.FromArgb(CType(CType(65, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.LblCamp.Font = New System.Drawing.Font("Verdana", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblCamp.ForeColor = System.Drawing.Color.White
-        Me.LblCamp.Location = New System.Drawing.Point(18, 18)
+        Me.LblCamp.Location = New System.Drawing.Point(16, 17)
         Me.LblCamp.Name = "LblCamp"
         Me.LblCamp.Size = New System.Drawing.Size(480, 47)
         Me.LblCamp.TabIndex = 3
@@ -144,7 +144,7 @@ Partial Class ResultTorneio
         Me.PnlBotoes.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.PnlBotoes.Controls.Add(Me.BtnCancel)
         Me.PnlBotoes.Controls.Add(Me.BtnSalvar)
-        Me.PnlBotoes.Location = New System.Drawing.Point(18, 341)
+        Me.PnlBotoes.Location = New System.Drawing.Point(16, 340)
         Me.PnlBotoes.Name = "PnlBotoes"
         Me.PnlBotoes.Size = New System.Drawing.Size(981, 66)
         Me.PnlBotoes.TabIndex = 4
@@ -190,7 +190,7 @@ Partial Class ResultTorneio
         '
         Me.PnlVice.Controls.Add(Me.PnlEscVice)
         Me.PnlVice.Controls.Add(Me.DgvVice)
-        Me.PnlVice.Location = New System.Drawing.Point(519, 75)
+        Me.PnlVice.Location = New System.Drawing.Point(517, 74)
         Me.PnlVice.Name = "PnlVice"
         Me.PnlVice.Size = New System.Drawing.Size(480, 250)
         Me.PnlVice.TabIndex = 5
@@ -217,25 +217,14 @@ Partial Class ResultTorneio
         Me.EscudoV.TabIndex = 2
         Me.EscudoV.TabStop = False
         '
-        'LblVice
-        '
-        Me.LblVice.BackColor = System.Drawing.Color.FromArgb(CType(CType(65, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.LblVice.Font = New System.Drawing.Font("Verdana", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblVice.ForeColor = System.Drawing.Color.White
-        Me.LblVice.Location = New System.Drawing.Point(519, 18)
-        Me.LblVice.Name = "LblVice"
-        Me.LblVice.Size = New System.Drawing.Size(480, 47)
-        Me.LblVice.TabIndex = 3
-        Me.LblVice.Text = "Vice"
-        '
         'DgvVice
         '
         Me.DgvVice.AllowUserToAddRows = False
         Me.DgvVice.AllowUserToDeleteRows = False
         Me.DgvVice.AllowUserToResizeColumns = False
         Me.DgvVice.AllowUserToResizeRows = False
-        DataGridViewCellStyle79.BackColor = System.Drawing.Color.Gainsboro
-        Me.DgvVice.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle79
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro
+        Me.DgvVice.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.DgvVice.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.DgvVice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
@@ -245,14 +234,14 @@ Partial Class ResultTorneio
         Me.DgvVice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DgvVice.ColumnHeadersVisible = False
         Me.DgvVice.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1})
-        DataGridViewCellStyle80.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle80.BackColor = System.Drawing.Color.LightGray
-        DataGridViewCellStyle80.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle80.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle80.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        DataGridViewCellStyle80.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle80.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DgvVice.DefaultCellStyle = DataGridViewCellStyle80
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGray
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DgvVice.DefaultCellStyle = DataGridViewCellStyle4
         Me.DgvVice.GridColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(222, Byte), Integer))
         Me.DgvVice.Location = New System.Drawing.Point(0, 0)
         Me.DgvVice.MultiSelect = False
@@ -273,6 +262,17 @@ Partial Class ResultTorneio
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
         '
+        'LblVice
+        '
+        Me.LblVice.BackColor = System.Drawing.Color.FromArgb(CType(CType(65, Byte), Integer), CType(CType(82, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.LblVice.Font = New System.Drawing.Font("Verdana", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblVice.ForeColor = System.Drawing.Color.White
+        Me.LblVice.Location = New System.Drawing.Point(517, 17)
+        Me.LblVice.Name = "LblVice"
+        Me.LblVice.Size = New System.Drawing.Size(480, 47)
+        Me.LblVice.TabIndex = 3
+        Me.LblVice.Text = "Vice"
+        '
         'ResultTorneio
         '
         Me.AcceptButton = Me.BtnSalvar
@@ -281,7 +281,7 @@ Partial Class ResultTorneio
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(145, Byte), Integer))
         Me.BackgroundImage = Global.Sorteio_de_Times.My.Resources.Resources.Background
         Me.CancelButton = Me.BtnCancel
-        Me.ClientSize = New System.Drawing.Size(1017, 426)
+        Me.ClientSize = New System.Drawing.Size(1013, 422)
         Me.ControlBox = False
         Me.Controls.Add(Me.LblCamp)
         Me.Controls.Add(Me.LblVice)
@@ -293,7 +293,7 @@ Partial Class ResultTorneio
         Me.MaximizeBox = False
         Me.Name = "ResultTorneio"
         Me.ShowIcon = False
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Resultado do Torneio"
         CType(Me.DgvCamp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PnlCamp.ResumeLayout(False)

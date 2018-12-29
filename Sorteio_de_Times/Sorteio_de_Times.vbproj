@@ -116,6 +116,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BancoDeDados.Designer.vb">
+      <DependentUpon>BancoDeDados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BancoDeDados.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Estatisticas.Designer.vb">
       <DependentUpon>Estatisticas.vb</DependentUpon>
     </Compile>
@@ -133,12 +139,6 @@
       <DependentUpon>Form2.vb</DependentUpon>
     </Compile>
     <Compile Include="Form2.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form3.Designer.vb">
-      <DependentUpon>Form3.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form3.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -164,6 +164,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BancoDeDados.resx">
+      <DependentUpon>BancoDeDados.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Estatisticas.resx">
       <DependentUpon>Estatisticas.vb</DependentUpon>
     </EmbeddedResource>
@@ -172,9 +175,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -368,6 +368,21 @@
     <Content Include="escudobranco2.ico" />
     <Content Include="icopesred.ico" />
     <Content Include="PES-YO.ico" />
+    <None Include="Resources\GameStartv2.wav" />
+    <None Include="Resources\uruguai.png" />
+    <None Include="Resources\portugal.png" />
+    <None Include="Resources\itália.png" />
+    <None Include="Resources\inglaterra.png" />
+    <None Include="Resources\holanda.png" />
+    <None Include="Resources\frança.png" />
+    <None Include="Resources\espanha.png" />
+    <None Include="Resources\croácia.png" />
+    <None Include="Resources\colômbia.png" />
+    <None Include="Resources\chile.png" />
+    <None Include="Resources\brasil.png" />
+    <None Include="Resources\bélgica.png" />
+    <None Include="Resources\argentina.png" />
+    <None Include="Resources\alemanha.png" />
     <None Include="Resources\Info.png" />
     <None Include="Resources\Classificação.png" />
   </ItemGroup>

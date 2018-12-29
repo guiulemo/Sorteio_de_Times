@@ -286,4 +286,49 @@
   <data name="Info" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="alemanha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alemanha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="argentina" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\argentina.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="brasil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\brasil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bélgica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bélgica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colômbia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\colômbia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="croácia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\croácia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espanha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espanha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="frança" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\frança.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="holanda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\holanda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inglaterra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inglaterra.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="itália" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itália.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="portugal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\portugal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="uruguai" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\uruguai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameStartv2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GameStartv2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

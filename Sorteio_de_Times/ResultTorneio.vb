@@ -156,7 +156,8 @@ Public Class ResultTorneio
         ExecuteNonQuery("Update Jogadores SET Part_ultimo = 'N'", cn)
 
         For i As Integer = 0 To AListaJ.GetUpperBound(0)
-            ExecuteNonQuery("Update Jogadores SET Part_ultimo = 'S', Participacoes = Participacoes + 1 WHERE Nome = '" & AListaJ(i) & "' ", cn)
+            ExecuteNonQuery("Update Jogadores SET Part_ultimo = 'S', Participacoes = Participacoes + 1 WHERE Nome = '" & AListaJ(i) & "'", cn)
+            ExecuteNonQuery("Update Jogadores SET Pontos = Pontos + 1 WHERE Nome = '" & AListaJ(i) & "'", cn)
         Next
 
         ExecuteNonQuery("Update Jogadores SET PosPart_ultimo = NULL", cn)
@@ -174,7 +175,8 @@ Public Class ResultTorneio
         Form1.BtnRegistrar.Enabled = False
 
         Close()
-        MsgBox("Torneio registrado com sucesso!", MsgBoxStyle.Information, "Registro")
+        My.Computer.Audio.Play(My.Resources.GameStartv2, AudioPlayMode.Background)
+        Estatisticas.Show()
     End Sub
 
     Private Sub BtnCancel_Click(sender As Object, e As EventArgs) Handles BtnCancel.Click

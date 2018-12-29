@@ -6,6 +6,7 @@ Module Modulo1
     Public AListaJ As String()
     Public AListaC As String()
     Public InterromperProcesso As Boolean
+    Public ExitProgram As Boolean = False
     Public constr As String = "Data Source=SorteioPES.db"
 
     Public Sub Wait(ByVal seconds As Single)
@@ -98,6 +99,7 @@ Module Modulo1
     End Sub
 
     Public Sub Clube_autocomplete()
+        Dim consulta As String
         Dim cn As New SQLiteConnection(constr)
         Try
             cn.Open()
@@ -108,7 +110,15 @@ Module Modulo1
             Exit Sub
         End Try
 
-        Using cmd As New SQLiteCommand("Select Nome From Clubes", cn)
+        If Form1.Label2.Text = "Lista de Clubes" Then
+            consulta = "Select Nome From Clubes Where Selecao = 'N'"
+        Else
+            consulta = "Select Nome From Clubes Where Selecao = 'S'"
+        End If
+
+        Form1.PesquisaC.AutoCompleteCustomSource = Nothing
+
+        Using cmd As New SQLiteCommand(consulta, cn)
             Using rd As SQLiteDataReader = cmd.ExecuteReader
                 While rd.Read
                     With Form1.PesquisaC
@@ -159,6 +169,7 @@ Public Class Form1
     Dim Esc As Object
     Private rnd0 As New Random()
 
+    'SUBs BANCO DE DADOS
     Private Sub dafill(ByVal q As String, ByVal tbl As DataTable, ByVal cn As SQLiteConnection)
         Dim da As New SQLiteDataAdapter(q, cn)
         da.Fill(tbl)
@@ -404,7 +415,7 @@ Public Class Form1
 
     'ADDJ PRESSIONA ENTER
     Private Sub AddJ_KeyDown(sender As Object, e As KeyEventArgs) Handles AddJ.KeyDown
-        If e.KeyCode = Keys.Enter Then
+        If e.KeyCode = Keys.Enter And LCase(Trim(AddJ.Text)) <> Nothing Then
 
             For Each row As DataGridViewRow In DataGridView1.Rows
                 For Each cell As DataGridViewCell In row.Cells
@@ -530,7 +541,7 @@ Public Class Form1
     End Sub
     'PESQUISA CLUBE
     Private Sub PesquisaC_KeyDown(sender As Object, e As KeyEventArgs) Handles PesquisaC.KeyDown
-        If e.KeyCode = Keys.Enter Then
+        If e.KeyCode = Keys.Enter And LCase(Trim(PesquisaC.Text)) <> Nothing Then
 
             For Each row As DataGridViewRow In DataGridView2.Rows
                 For Each cell As DataGridViewCell In row.Cells
@@ -641,30 +652,16 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub PesquisaC_Enter(sender As Object, e As EventArgs) Handles PesquisaC.Enter
-        PesquisaC.ForeColor = Color.FromArgb(0)
-        PesquisaC.Text = ""
+    'BOTÃO RANKING
+    Private Sub BtnRanking_Click(sender As Object, e As EventArgs) Handles BtnRanking.Click
+        Estatisticas.Show()
     End Sub
 
-    Private Sub PesquisaC_Leave(sender As Object, e As EventArgs) Handles PesquisaC.Leave
-        PesquisaC.ForeColor = Color.FromArgb(109, 109, 109)
-        PesquisaC.Text = "Pesquisar Clubes"
-    End Sub
-
-    Private Sub AddJ_Enter(sender As Object, e As EventArgs) Handles AddJ.Enter
-        AddJ.ForeColor = Color.FromArgb(0)
-        AddJ.Text = ""
-    End Sub
-
-    Private Sub AddJ_Leave(sender As Object, e As EventArgs) Handles AddJ.Leave
-        AddJ.ForeColor = Color.FromArgb(109, 109, 109)
-        AddJ.Text = "Adicionar Jogadores"
-    End Sub
-
-    'FORM1 LOAD
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Clube_autocomplete()
-        Jogador_autocomplete()
+    'RECUPERAR SORTEIO (F1)
+    Private Sub RecupSorteio()
+        If BtnRegistrar.Enabled = True Then
+            Exit Sub
+        End If
 
         Dim cn As New SQLiteConnection(constr)
         Try
@@ -676,58 +673,63 @@ Public Class Form1
             Exit Sub
         End Try
 
+        Dim dt0 As New DataTable
+        Try
+            dafill("SELECT Count(PosPart_ultimo)
+        FROM Clubes", dt0, cn)
+            If dt0.Rows(0)(0) = 0 Then
+                MsgBox("O último torneio já foi registrado", MsgBoxStyle.Information, "Atenção")
+                GoTo Encerra
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        Dim Result As MsgBoxResult
+        Result = MsgBox("Deseja recuperar os dados do último sorteio realizado?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Recuperar sorteio")
+
+        If Result = MsgBoxResult.No Then
+            GoTo Encerra
+        End If
+
         Dim dt As New DataTable
         Try
-            dafill("Select Nome From Jogadores Where Part_ultimo = 'S' Order By 1", dt, cn)
-            DataGridView1.DataSource = Nothing
-            DataGridView1.DataSource = dt
-            ConfereLimite()
+            dafill("Select j.Nome, c.Nome As 'Clube'
+                From Jogadores j, Clubes c
+                Where j.PosPart_ultimo = c.PosPart_ultimo
+                Order By j.PosPart_ultimo", dt, cn)
+            Dim Jogadores(dt0.Rows(0)(0) - 1) As String
+            Dim Clubes(dt0.Rows(0)(0) - 1) As String
+            For i As Integer = 1 To dt.Rows.Count
+                Jogadores(i - 1) = dt.Rows(i - 1)(0)
+                Clubes(i - 1) = dt.Rows(i - 1)(1)
+
+                RefCxTxtJ(i).Text = dt.Rows(i - 1)(0)
+                RefCxTxtC(i).Text = dt.Rows(i - 1)(1)
+                Esc = AdequaNome(RefCxTxtC(i).Text)
+                RefLogo(i).Image = My.Resources.ResourceManager.GetObject(Esc)
+
+                If My.Resources.ResourceManager.GetObject(Esc) Is Nothing Then
+                    RefLogo(i).Image = My.Resources.generic_logo
+                Else
+                    RefLogo(i).Image = My.Resources.ResourceManager.GetObject(Esc)
+                End If
+            Next
+            AListaJ = Jogadores
+            AListaC = Clubes
+            BtnRegistrar.Enabled = True
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
 
-        Dim dtc As New DataTable
-        Try
-            ExecuteNonQuery("Update Clubes SET ListaSorteio = 'N'", cn)
-            ExecuteNonQuery("Update Clubes SET ListaSorteio = 'S' where Principal = 'S'", cn)
-            dafill("Select Nome From Clubes Where Principal = 'S' Order By 1", dtc, cn)
-            DataGridView2.DataSource = Nothing
-            DataGridView2.DataSource = dtc
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-
-        dtc.Dispose()
-        dtc = Nothing
         dt.Dispose()
         dt = Nothing
+Encerra:
+        dt0.Dispose()
+        dt0 = Nothing
         cn.Close()
         cn.Dispose()
         cn = Nothing
-    End Sub
-
-    'FORM1 CLOSING
-    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        If BtnRegistrar.Enabled = False Then
-            Exit Sub
-        End If
-
-        Dim Result As DialogResult
-        Result = MsgBox("Deseja registrar o torneio antes de fechar o programa?", MsgBoxStyle.YesNoCancel + MessageBoxIcon.Exclamation, "Registro")
-        If Result = MsgBoxResult.Yes Then
-            Hide()
-            ResultTorneio.ShowDialog()
-            If Visible = True Then
-                e.Cancel = True
-            End If
-        ElseIf Result = MsgBoxResult.Cancel Then
-            e.Cancel = True
-        End If
-
-    End Sub
-
-    Private Sub BtnRanking_Click(sender As Object, e As EventArgs) Handles BtnRanking.Click
-        Estatisticas.Show()
     End Sub
 
     Public Sub SalvaPosicao()
@@ -754,80 +756,26 @@ Public Class Form1
         cn = Nothing
     End Sub
 
-    Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        If BtnRegistrar.Enabled = True Then
-            Exit Sub
+    'ENTER & LEAVE - CAIXAS DE PESQUISA
+    Private Sub PesquisaC_Enter(sender As Object, e As EventArgs) Handles PesquisaC.Enter
+        PesquisaC.ForeColor = Color.FromArgb(0)
+        PesquisaC.Text = ""
+    End Sub
+    Private Sub PesquisaC_Leave(sender As Object, e As EventArgs) Handles PesquisaC.Leave
+        PesquisaC.ForeColor = Color.FromArgb(109, 109, 109)
+        If Label2.Text = "Lista de Clubes" Then
+            PesquisaC.Text = "Pesquisar Clubes"
+        Else
+            PesquisaC.Text = "Pesquisar Seleção"
         End If
-
-        If e.KeyCode = Keys.F1 Then
-            Dim cn As New SQLiteConnection(constr)
-            Try
-                cn.Open()
-            Catch ex As Exception
-                cn.Dispose()
-                cn = Nothing
-                MsgBox(ex.Message)
-                Exit Sub
-            End Try
-
-            Dim dt0 As New DataTable
-            Try
-                dafill("SELECT Count(PosPart_ultimo)
-                    FROM Clubes", dt0, cn)
-                If dt0.Rows(0)(0) = 0 Then
-                    MsgBox("O último torneio já foi registrado", MsgBoxStyle.Information, "Atenção")
-                    GoTo Encerra
-                End If
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-
-            Dim Result As MsgBoxResult
-            Result = MsgBox("Deseja recuperar os dados do último sorteio realizado?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Recuperar sorteio")
-
-            If Result = MsgBoxResult.No Then
-                GoTo Encerra
-            End If
-
-            Dim dt As New DataTable
-            Try
-                dafill("Select j.Nome, c.Nome As 'Clube'
-                            From Jogadores j, Clubes c
-                            Where j.PosPart_ultimo = c.PosPart_ultimo
-                            Order By j.PosPart_ultimo", dt, cn)
-                Dim Jogadores(dt0.Rows(0)(0) - 1) As String
-                Dim Clubes(dt0.Rows(0)(0) - 1) As String
-                For i As Integer = 1 To dt.Rows.Count
-                    Jogadores(i - 1) = dt.Rows(i - 1)(0)
-                    Clubes(i - 1) = dt.Rows(i - 1)(1)
-
-                    RefCxTxtJ(i).Text = dt.Rows(i - 1)(0)
-                    RefCxTxtC(i).Text = dt.Rows(i - 1)(1)
-                    Esc = AdequaNome(RefCxTxtC(i).Text)
-                    RefLogo(i).Image = My.Resources.ResourceManager.GetObject(Esc)
-
-                    If My.Resources.ResourceManager.GetObject(Esc) Is Nothing Then
-                        RefLogo(i).Image = My.Resources.generic_logo
-                    Else
-                        RefLogo(i).Image = My.Resources.ResourceManager.GetObject(Esc)
-                    End If
-                Next
-                AListaJ = Jogadores
-                AListaC = Clubes
-                BtnRegistrar.Enabled = True
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-
-            dt.Dispose()
-            dt = Nothing
-Encerra:
-            dt0.Dispose()
-            dt0 = Nothing
-            cn.Close()
-            cn.Dispose()
-            cn = Nothing
-        End If
+    End Sub
+    Private Sub AddJ_Enter(sender As Object, e As EventArgs) Handles AddJ.Enter
+        AddJ.ForeColor = Color.FromArgb(0)
+        AddJ.Text = ""
+    End Sub
+    Private Sub AddJ_Leave(sender As Object, e As EventArgs) Handles AddJ.Leave
+        AddJ.ForeColor = Color.FromArgb(109, 109, 109)
+        AddJ.Text = "Adicionar Jogadores"
     End Sub
 
     'LIMITE JOGADORES
@@ -839,5 +787,113 @@ Encerra:
         Else
             AddJ.Enabled = True
         End If
+    End Sub
+    'ALTERNAR CLUBES E SELEÇÕES
+    Private Sub Label2_DoubleClick(sender As Object, e As EventArgs) Handles Label2.DoubleClick
+        If Label2.Text = "Lista de Clubes" Then
+            Label2.Text = "Lista de Seleções"
+        Else
+            Label2.Text = "Lista de Clubes"
+        End If
+        Clube_autocomplete()
+        PovClubes()
+    End Sub
+
+    'POVOA DGV JOGADORES
+    Public Sub PovJogadores()
+        Dim cn As New SQLiteConnection(constr)
+        Try
+            cn.Open()
+        Catch ex As Exception
+            cn.Dispose()
+            cn = Nothing
+            MsgBox(ex.Message)
+            Exit Sub
+        End Try
+
+        Dim dt As New DataTable
+        Try
+            dafill("Select Nome From Jogadores Where Part_ultimo = 'S' Order By 1", dt, cn)
+            DataGridView1.DataSource = Nothing
+            DataGridView1.DataSource = dt
+            ConfereLimite()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        dt.Dispose()
+        dt = Nothing
+        cn.Close()
+        cn.Dispose()
+        cn = Nothing
+    End Sub
+    'POVOA DGV CLUBES
+    Public Sub PovClubes()
+        Dim cn As New SQLiteConnection(constr)
+        Try
+            cn.Open()
+        Catch ex As Exception
+            cn.Dispose()
+            cn = Nothing
+            MsgBox(ex.Message)
+            Exit Sub
+        End Try
+
+        Dim dtc As New DataTable
+        Try
+            ExecuteNonQuery("Update Clubes SET ListaSorteio = 'N'", cn)
+
+            If Label2.Text = "Lista de Clubes" Then
+                ExecuteNonQuery("Update Clubes SET ListaSorteio = 'S' where Principal = 'S'", cn)
+                dafill("Select Nome From Clubes Where Principal = 'S' Order By 1", dtc, cn)
+            Else
+                ExecuteNonQuery("Update Clubes SET ListaSorteio = 'S' where Selecao = 'S'", cn)
+                dafill("Select Nome From Clubes Where ListaSorteio = 'S' Order By 1", dtc, cn)
+            End If
+
+            DataGridView2.DataSource = Nothing
+            DataGridView2.DataSource = dtc
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+        dtc.Dispose()
+        dtc = Nothing
+        cn.Close()
+        cn.Dispose()
+        cn = Nothing
+    End Sub
+
+    'FORM1 LOAD
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Clube_autocomplete()
+        Jogador_autocomplete()
+        PovJogadores()
+        PovClubes()
+    End Sub
+    'FORM1 CLOSING
+    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        If BtnRegistrar.Enabled = False Then
+            Exit Sub
+        End If
+
+        Dim Result As DialogResult
+        Result = MsgBox("Deseja registrar o torneio antes de fechar o programa?", MsgBoxStyle.YesNoCancel + MessageBoxIcon.Exclamation, "Registro")
+        If Result = MsgBoxResult.Yes Then
+            Hide()
+            ResultTorneio.ShowDialog()
+            ExitProgram = True
+            e.Cancel = True
+        ElseIf Result = MsgBoxResult.Cancel Then
+            e.Cancel = True
+        End If
+    End Sub
+
+    Private Sub ItemGBD_Click(sender As Object, e As EventArgs) Handles ItemGBD.Click
+        BancoDeDados.Show()
+    End Sub
+
+    Private Sub ItemRecupSorteio_Click(sender As Object, e As EventArgs) Handles ItemRecupSorteio.Click
+        RecupSorteio()
     End Sub
 End Class
